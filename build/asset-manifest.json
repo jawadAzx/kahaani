@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4b856409.chunk.css",
+    "main.js": "/static/js/main.f0b51eb7.chunk.js",
+    "main.js.map": "/static/js/main.f0b51eb7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.75304b70.js",
+    "runtime-main.js.map": "/static/js/runtime-main.75304b70.js.map",
+    "static/css/2.5946fbb0.chunk.css": "/static/css/2.5946fbb0.chunk.css",
+    "static/js/2.41c93ad9.chunk.js": "/static/js/2.41c93ad9.chunk.js",
+    "static/js/2.41c93ad9.chunk.js.map": "/static/js/2.41c93ad9.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.5946fbb0.chunk.css.map": "/static/css/2.5946fbb0.chunk.css.map",
+    "static/css/main.4b856409.chunk.css.map": "/static/css/main.4b856409.chunk.css.map",
+    "static/js/2.41c93ad9.chunk.js.LICENSE.txt": "/static/js/2.41c93ad9.chunk.js.LICENSE.txt",
+    "static/media/Logo.ea562819.png": "/static/media/Logo.ea562819.png",
+    "static/media/home-illus.149aadbc.svg": "/static/media/home-illus.149aadbc.svg",
+    "static/media/library-logo.f0d95ee8.svg": "/static/media/library-logo.f0d95ee8.svg",
+    "static/media/microscope-line-art.485beaaf.png": "/static/media/microscope-line-art.485beaaf.png",
+    "static/media/App.css": "/static/media/player-bg2.8b0550d2.jpg",
+    "static/media/synth-logo.dd8a7605.svg": "/static/media/synth-logo.dd8a7605.svg",
+    "static/media/taimoor.fdf1596f.wav": "/static/media/taimoor.fdf1596f.wav"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.75304b70.js",
+    "static/css/2.5946fbb0.chunk.css",
+    "static/js/2.41c93ad9.chunk.js",
+    "static/css/main.4b856409.chunk.css",
+    "static/js/main.f0b51eb7.chunk.js"
+  ]
+}
