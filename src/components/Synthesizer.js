@@ -12,7 +12,7 @@ function Synthesizer() {
     const playAudio = async (id) => {
         setGet(false)
         setSynthesize(true)
-        const url = "http://34.232.173.3/synthesize"
+        const url = "https://api.kahaani.fun/synthesize"
         const body = {
             // add quotation marks to text 
             "text" : `"${text}"`
