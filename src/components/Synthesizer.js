@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-
-
+const fs = require('fs');
 function Synthesizer() {
     const [text, setText] = useState("");
     const [get, setGet] = useState(false);
@@ -12,22 +11,20 @@ function Synthesizer() {
     const playAudio = async (id) => {
         setGet(false)
         setSynthesize(true)
-        const url = "http://34.232.173.3/synthesize"
+        const url = "https://api.kahaani.fun/synthesize"
         const body = {
             // add quotation marks to text 
-            "text" : `"${text}"`
+            "text": `"${text}"`
         }
-        
+
         // make get fetch request
-        fetch( url, {
+        fetch(url, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(body),
         })
-
-
             .then(response => response.blob())
             .then(async blob => {
                 let file = new File([blob], "1.wav", {
@@ -49,8 +46,8 @@ function Synthesizer() {
                 <h1 className="text-gray heading-text mt-3">Synthesizer</h1>
             </div>
             <div className="d-flex justify-content-center bg-yellow">
-                <div className="main mb-3">
-                    <div className="form-group has-search rounded">
+                <div className="bottom-container">
+                    {/* <div className="form-group has-search rounded">
                         <span className="fa fa-search form-control-feedback"></span>
                         <input
                             type="text"
@@ -59,9 +56,19 @@ function Synthesizer() {
                             onChange={(e) => setText(e.target.value)}
                             value={text}
                         />
+                    </div> */}
+                    <div className="upload-text-box">
+                        <textarea className="upload-text-input"
+                            placeholder="Enter Urdu text"
+                            rows={10}
+                            value={text}
+                            onChange={(e) => setText(e.target.value)}
+                        >
+
+                        </textarea>
                     </div>
                     <div className="bottom-container">
-                        <button className="btn btn-primary mb-3" onClick={playAudio}>Synthesize</button>
+                        <button className="btn btn-primary mb-3 mt-3" onClick={playAudio}>Synthesize</button>
 
 
                         {get ? <audio className="audio-set" controls>
