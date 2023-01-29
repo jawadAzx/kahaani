@@ -1,5 +1,5 @@
 ### kahaani
-An audio storytelling application to teach school children Urdu
+An audio storytelling application to teach school children Urdu.
 
 ### For development
 Steps to get the dev environment running:

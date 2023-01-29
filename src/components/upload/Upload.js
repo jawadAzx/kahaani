@@ -3,13 +3,24 @@ import { Link } from "react-router-dom";
 
 const Upload = () => {
     const [isFilePicked, setIsFilePicked] = useState(false);
-    const [selectedFile, setSelectedFile] = useState();
+
+    const [selectedAudio, setSelectedAudio] = useState();
+    const [selectedImage, setSelectedImage] = useState();
+
     const [text, setText] = useState("");
     const [title, setTitle] = useState("");
 
     const changeHandler = (event) => {
-        setSelectedFile(event.target.files[0]);
-        setIsFilePicked(true);
+        if (event.target.id == "file") {
+            setSelectedAudio(event.target.files[0]);
+            setIsFilePicked(true);
+
+        }
+        if (event.target.id == "image") {
+            setSelectedImage(event.target.files[0]);
+            setIsFilePicked(true);
+
+        }
     };
 
     return (
@@ -34,6 +45,18 @@ const Upload = () => {
                         type="file"
                         name="file"
                         id="file"
+                        placeholder='Upload Audio'
+                    />
+                </button>
+
+                <button className=" selectfile-button mt-3">
+                    <input
+                        onChange={changeHandler}
+                        type="file"
+                        name="file"
+                        id="image"
+                        placeholder='Upload Image'
+                        
                     />
                 </button>
                 {isFilePicked && text != "" ? (
@@ -42,7 +65,8 @@ const Upload = () => {
                         state: {
                             title: title,
                             text: text,
-                            file: selectedFile
+                            audio: selectedAudio,
+                            image: selectedImage
                         }
                     }}>
                         < button

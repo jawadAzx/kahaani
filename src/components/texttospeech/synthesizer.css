@@ -1,0 +1,32 @@
+.heading{
+    position: relative;
+    top: 6vh;
+    align-items: center;
+    font-size: 2.0rem;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: bolder;
+
+}
+.form-control1{
+    display: block;
+    position: relative;
+    top:10vh;
+    height:35vh;
+    width: 50vw;
+    border: 0.5px solid;
+    padding:2%;
+}
+.maindiv{
+    background-color: #F8D66E;
+    overflow: hidden;
+    height: 90vh;
+}
+input::placeholder{
+    position: relative;
+    top:-17vh;
+    text-align: right;
+}
+.rounded1{
+    border-radius: 1rem;
+    text-align: right;
+}

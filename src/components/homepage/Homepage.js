@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import libraryLogo from "../assets/images/library-logo.svg"
-import SynthesizerLogo from "../assets/images/synth-logo.svg"
-import HomeLogo from "../assets/images/home-illus.svg"
+import libraryLogo from "../../assets/images/library-logo.svg"
+import SynthesizerLogo from "../../assets/images/synth-logo.svg"
+import HomeLogo from "../../assets/images/home-illus.svg"
 
 function Homepage() {
   return (
@@ -32,7 +32,7 @@ function Homepage() {
                     className="home-icons"
                   />
                   <h2 className="make-bold m-left-mobile2">
-                    Synthesizer
+                    Text to Speech
                   </h2>
                 </Link>
               </div>

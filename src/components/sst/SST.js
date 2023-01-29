@@ -2,22 +2,21 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useLocation, Link, Redirect } from 'react-router-dom'
 import Loader from "react-loader-spinner";
-import { uploadStory } from '../FirebaseApi';
 
 
 const SST = () => {
     const location = useLocation();
-    const { title, text, file } = location.state;
+    const { title, text, audio, image } = location.state;
 
     const [loading, setLoading] = useState(true);
     const [done, setDone] = useState(false);
-    const [highlightText, setHighlightText] = useState("");
+    const [highlightText, setHighlightText] = useState({});
     const [redirect, setRedirect] = useState(false);
     // function to get highligting text from Google speech to text API server
     const handleUpload = async () => {
-        let address = 'https://speech-text-converter.herokuapp.com/getData' // address of the server
+        let address = 'https://kahaani-backend.onrender.com/api/getHighlights' // address of the server
         let formData = new FormData();
-        formData.append('file', file);
+        formData.append('file', audio);
         const res = await axios.post(address, formData);
         setLoading(false);
         let data = res.data;
@@ -26,14 +25,33 @@ const SST = () => {
     // function to upload the story to firebase
     const handleNext = async () => {
         setLoading(true);
-        const uploadTask = await uploadStory(title, file, highlightText);
-        if (uploadTask.state === "success") {
-            setLoading(false);
-            setDone(true);
+        const uploadStory = () => {
+            console.log("UWU")
         }
-        else {
-            alert("Something went wrong")
-        }
+        let address = 'https://kahaani-backend.onrender.com/api/story/postStory'
+        let formData = new FormData();
+        formData.append('audio', audio);
+        formData.append('image', image);
+        formData.append('title', title)
+        formData.append('text', JSON.stringify(highlightText))
+        // console.log(highlightText)
+        // const finData = JSON.stringify(highlightText)
+        // let config = {
+        //     headers: {
+        //         'Content-Type': 'multipart/form-data',
+        //         'title': title,
+        //         'text': finData
+        //     }
+        // }
+        // console.log("S")
+        await axios.post(address, formData)
+            .then(response => {
+                console.log(response.data);
+                setDone(true)
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     useEffect(() => {

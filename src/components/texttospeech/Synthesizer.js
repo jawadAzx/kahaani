@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import Loader from "react-loader-spinner";
+import './synthesizer.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-const fs = require('fs');
+
+
 function Synthesizer() {
     const [text, setText] = useState("");
     const [get, setGet] = useState(false);
@@ -14,17 +16,19 @@ function Synthesizer() {
         const url = "https://api.kahaani.fun/synthesize"
         const body = {
             // add quotation marks to text 
-            "text": `"${text}"`
+            "text" : `"${text}"`
         }
-
+        
         // make get fetch request
-        fetch(url, {
+        fetch( url, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(body),
         })
+
+
             .then(response => response.blob())
             .then(async blob => {
                 let file = new File([blob], "1.wav", {
@@ -41,36 +45,22 @@ function Synthesizer() {
             .catch(err => console.error(err));
     }
     return (
-        <div className="bg-white">
-            <div className="d-flex justify-content-center bg-yellow">
-                <h1 className="text-gray heading-text mt-3">Synthesizer</h1>
+        <div className="maindiv">
+            <div className="d-flex justify-content-center">
+                <h1 className="text-black mt-3 heading">Text to Speech Converter</h1>
             </div>
-            <div className="d-flex justify-content-center bg-yellow">
-                <div className="bottom-container">
-                    {/* <div className="form-group has-search rounded">
-                        <span className="fa fa-search form-control-feedback"></span>
-                        <input
+            <div className="d-flex justify-content-center">
+                <div className="main mb-3">
+                        <textarea
                             type="text"
-                            className="form-control rounded"
-                            placeholder="Enter Urdu text..."
+                            className="form-control1 rounded1 wideInput"
+                            maxLength= "10000"
+                            placeholder="اردو میں لکھیں"
                             onChange={(e) => setText(e.target.value)}
                             value={text}
                         />
-                    </div> */}
-                    <div className="upload-text-box">
-                        <textarea className="upload-text-input"
-                            placeholder="Enter Urdu text"
-                            rows={10}
-                            value={text}
-                            onChange={(e) => setText(e.target.value)}
-                        >
-
-                        </textarea>
-                    </div>
                     <div className="bottom-container">
-                        <button className="btn btn-primary mb-3 mt-3" onClick={playAudio}>Synthesize</button>
-
-
+                        <button className="btn mb-3 listen" onClick={playAudio}>Listen to the audio file</button>
                         {get ? <audio className="audio-set" controls>
                             <source src={audioStorage} type="audio/wav" />
                         </audio> : <div>
