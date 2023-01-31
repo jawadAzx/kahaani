@@ -9,7 +9,11 @@ function Synthesizer() {
     const [get, setGet] = useState(false);
     const [synthesize, setSynthesize] = useState(false);
     const [audioStorage, setAudioStorage] = useState(null);
-
+    const [characterCount, setCharacterCount] = useState(0);
+    const handleChange = (e) =>{
+        setText(e.target.value)
+        setCharacterCount(e.target.value.length)
+    }
     const playAudio = async (id) => {
         setGet(false)
         setSynthesize(true)
@@ -51,15 +55,17 @@ function Synthesizer() {
             </div>
             <div className="d-flex justify-content-center">
                 <div className="main mb-3">
+                <div class='charcount'>{characterCount}</div>
                         <textarea
                             type="text"
+                            onChange = {handleChange}
                             className="form-control1 rounded1 wideInput"
                             maxLength= "10000"
                             placeholder="اردو میں لکھیں"
-                            onChange={(e) => setText(e.target.value)}
                             value={text}
                         />
-                    <div className="bottom-container">
+                    
+                    <div className="bottom-container    ">
                         <button className="btn mb-3 listen" onClick={playAudio}>Listen to the audio file</button>
                         {get ? <audio className="audio-set" controls>
                             <source src={audioStorage} type="audio/wav" />

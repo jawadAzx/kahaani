@@ -10,8 +10,8 @@
 .form-control1{
     display: block;
     position: relative;
-    top:10vh;
-    height:35vh;
+    height:40vh;
+    top:-5vh;
     width: 50vw;
     border: 0.5px solid;
     padding:2%;
@@ -21,12 +21,37 @@
     overflow: hidden;
     height: 90vh;
 }
-input::placeholder{
+@import url(http://fonts.googleapis.com/earlyaccess/notonastaliqurdudraft.css);
+textarea{
+    font-family: 'Noto Nastaliq Urdu Draft', serif ;
+}
+
+textarea::placeholder{
     position: relative;
-    top:-17vh;
     text-align: right;
+    font-family: 'Noto Nastaliq Urdu Draft', serif;
 }
 .rounded1{
     border-radius: 1rem;
     text-align: right;
+}
+
+.charcount{
+    position: relative;
+    background: transparent;
+    padding: 40px;
+    border-radius: 10px;
+    width: 50%;
+    margin: 40px auto;
+    right:14vw;
+    font-weight: bold;
+    top:48vh;
+}
+
+
+.charcount::after{
+    content: attr(data-charcount) "/10000 Characters";
+    position: relative;
+    font-size: 10pt;
+    color: rgb(0, 0, 0);
 }

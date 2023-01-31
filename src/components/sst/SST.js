@@ -13,10 +13,17 @@ const SST = () => {
     const [highlightText, setHighlightText] = useState({});
     const [redirect, setRedirect] = useState(false);
     // function to get highligting text from Google speech to text API server
+    //http://localhost:8000/api/getHighlights
+    //http://localhost:8000/api/story/postStory
+    //https://kahaani-backend.onrender.com/api/getHighlights
+    //https://kahaani-backend.onrender.com/api/story/postStory
     const handleUpload = async () => {
         let address = 'https://kahaani-backend.onrender.com/api/getHighlights' // address of the server
         let formData = new FormData();
         formData.append('file', audio);
+        for (const value of formData.values()) {
+            console.log(value);
+          }
         const res = await axios.post(address, formData);
         setLoading(false);
         let data = res.data;
