@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import libraryLogo from "../../assets/images/library-logo.svg"
 import SynthesizerLogo from "../../assets/images/synth-logo.svg"
 import HomeLogo from "../../assets/images/home-illus.svg"
+import Footer from "../footer/Footer";
+import './Homepage.css'
 
 function Homepage() {
   return (
-    <div className="bg-yellow">
+    <div className="homepage">
       <div className="row">
         <div className="col change-text">
           <div className="container mt-5 ">
@@ -44,6 +46,8 @@ function Homepage() {
           <img src={HomeLogo} className="home-illus" />
         </div>
       </div>
+    <Footer isLibrary = {false}
+    />
     </div>
   );
 }

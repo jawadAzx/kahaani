@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer(props) {
   return (
-    <footer className="footer">
+    <footer className="footer" style={{background:props.isLibrary?"white":'#F8D66E',top:props.isSynthesizer?'98.5%':undefined}}>
       <div className="text-left text-black">
         <small className="textfooter">Copyright 2023 © Kahaani</small>
       </div>

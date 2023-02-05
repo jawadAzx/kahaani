@@ -5,8 +5,10 @@ import Summary from "../summary/Summary";
 import { Link } from "react-router-dom";
 import { getLibraryData } from "../../FirebaseApi";
 import { doc, addDoc, collection } from "firebase/firestore";
+import Footer from "../footer/Footer";
 import { db } from "../../FirebaseConfig";
 import axios from "axios"
+import './Library.css'
 //import Loader from "react-loader-spinner";
 
 //import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -15,7 +17,7 @@ function Library() {
   const [library, setLibrary] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/story/getStories").then(
+    axios.get("https://kahaani-backend.onrender.com/api/story/getStories").then(
       response => {
         console.log(response.data.dataItems);
         const dee = response.data.dataItems;
@@ -31,7 +33,7 @@ function Library() {
 
 
   return (
-    <div className="bg-white">
+    <div className="library">
 
       {library &&
         Object.keys(library).map((genre, index) => {
@@ -52,7 +54,8 @@ function Library() {
                           pathname: "/player/:1",
                           state: {
                             audio: story.audio,
-                            text: story.text
+                            text: story.text,
+                            title: story.title,
                           }
                         }}
                         >
@@ -91,6 +94,8 @@ function Library() {
 
         </div>
       }
+      <Footer isLibrary = {true}
+    />
     </div >
   );
 }

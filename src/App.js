@@ -36,7 +36,6 @@ function App() {
           <Route path="/upload" component={Upload} />
           <Route path="/sst" component={SST} />
         </Switch>
-        <Footer />
       </Router>
     </div>
   );

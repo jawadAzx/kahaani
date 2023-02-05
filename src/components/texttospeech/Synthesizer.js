@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Loader from "react-loader-spinner";
+import Footer from "../footer/Footer";
 import './synthesizer.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
@@ -65,7 +66,7 @@ function Synthesizer() {
                             value={text}
                         />
                     
-                    <div className="bottom-container    ">
+                    <div className="bottom-container">
                         <button className="btn mb-3 listen" onClick={playAudio}>Listen to the audio file</button>
                         {get ? <audio className="audio-set" controls>
                             <source src={audioStorage} type="audio/wav" />
@@ -75,7 +76,7 @@ function Synthesizer() {
                                     <h1>LOADING</h1>
                                     <Loader
                                         type="RevolvingDot"
-                                        color="#00BFFF"
+                                        color="#4ac890"
                                         height={100}
                                         width={100}
                                     />
@@ -85,9 +86,8 @@ function Synthesizer() {
                         </div>}
                     </div>
                 </div>
-
             </div>
-
+            <Footer isLibrary={false} isSynthesizer={true}/>
         </div>
     );
 }

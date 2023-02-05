@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Footer from '../footer/Footer';
 import { Link } from "react-router-dom";
 
 const Upload = () => {
@@ -24,7 +25,7 @@ const Upload = () => {
     };
 
     return (
-        <div className="bottom-container">
+        <div className="bottom-container upload">
             <div className="heading-text mt-3">
                 <h2>Upload</h2>
             </div>
@@ -79,6 +80,7 @@ const Upload = () => {
                     <p className='change-text'>Select an audio file to upload</p>
                 )}
             </div>
+        <Footer isLibrary={true} isSynthesizer={true}/>
         </div >
     )
 }

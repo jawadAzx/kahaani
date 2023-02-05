@@ -10,16 +10,15 @@
 .form-control1{
     display: block;
     position: relative;
-    height:40vh;
-    top:-5vh;
+    height:38vh;
+    top: -7vh;
     width: 50vw;
     border: 0.5px solid;
     padding:2%;
 }
 .maindiv{
     background-color: #F8D66E;
-    overflow: hidden;
-    height: 90vh;
+    height: 92vh;
 }
 @import url(http://fonts.googleapis.com/earlyaccess/notonastaliqurdudraft.css);
 textarea{
@@ -42,10 +41,11 @@ textarea::placeholder{
     padding: 40px;
     border-radius: 10px;
     width: 50%;
-    margin: 40px auto;
+    /* margin: 40px auto; */
     right:14vw;
     font-weight: bold;
-    top:48vh;
+    top:46vh;
+    margin-left: 152px;
 }
 
 

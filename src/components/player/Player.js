@@ -17,8 +17,7 @@ function Player(props) {
     const firstScroll = useRef(null)
     const secondScroll = useRef(null)
 
-    const title = "خوردبینی جاندار";
-    const { audio, text } = props.location.state
+    const { audio, text, title } = props.location.state
     console.log(audio, JSON.parse(text))
     /**
      * type 0 = regular string

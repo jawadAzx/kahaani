@@ -173,7 +173,7 @@ a:hover {
   text-align: right;
   font-size: xx-large;
   margin-bottom: auto;
-  line-height: 220%;
+  line-height: 270%;
 }
 
 .story-title {
@@ -467,11 +467,9 @@ audio {
 }
 
 .footer {
-  position: relative;
-  background-color: #F8D66E;
-  overflow: hidden;
+  position: absolute;
+  background-color: transparent;
   width: 100%;
-  top: 99%;
 }
 
 .textfooter {
@@ -482,7 +480,7 @@ audio {
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 .listen {
-  background-color: #6485E2;
+  background-color: #4ac890;
   color: #ffff;
   padding: 12px;
   font: 'Open Sans'
@@ -530,7 +528,7 @@ audio {
 
 .edits {
   min-width: 320px;
-  height: max-content;
+  height:max-content;
   border-radius: 20px;
   background: #fdfbfb;
   margin-right: 6px;
