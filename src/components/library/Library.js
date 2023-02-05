@@ -15,7 +15,7 @@ function Library() {
   const [library, setLibrary] = useState(null);
 
   useEffect(() => {
-    axios.get("https://kahaani-backend.onrender.com/api/story/getStories").then(
+    axios.get("http://localhost:8000/api/story/getStories").then(
       response => {
         console.log(response.data.dataItems);
         const dee = response.data.dataItems;
@@ -34,43 +34,56 @@ function Library() {
     <div className="bg-white">
 
       {library &&
-        library.map((story, index) => {
-          { console.log(story) }
+        Object.keys(library).map((genre, index) => {
+          const data = library[genre];
+          { console.log(data) }
           return (
             <div key={index} className="container mt-3">
-              <h2 className="heading-text mt-6">{story.genre}</h2>
-              <div className="wrapper mt-3">
-                <div key={index} className={`column d-flex flex-column align-items-center p-2 edits`}>
-                  <h2 className="heading-text ml-3 subject-headings">{story.title}</h2>
+              <h2 className="heading-text mt-6">{genre}</h2>
+              <div className="row-flex">
+                {data.map((story, index) => {
+                  console.log(story)
+                  return (
+                    <div className="wrapper mt-3">
+                      <div key={index} className={`column d-flex flex-column align-items-center p-2 edits`}>
+                        <h2 className="heading-text ml-3 subject-headings">{story.title}</h2>
 
-                  <Link key={index} to={{
-                    pathname: "/player/:1",
-                    state: {
-                      audio: story.audio,
-                      text: story.text
-                    }
-                  }}
-                  >
+                        <Link key={index} to={{
+                          pathname: "/player/:1",
+                          state: {
+                            audio: story.audio,
+                            text: story.text
+                          }
+                        }}
+                        >
 
-                    <div>
-                      <img
-                        className="card-image"
-                        style={{ objectFit: "contain" }}
-                        src={story.image}
-                        alt="Card images cap"
-                      />
-                      <h1 className="sub-heading-text mt-3">
-                        {story.title}
-                      </h1>
+                          <div>
+                            <img
+                              className="card-image"
+                              style={{ objectFit: "contain" }}
+                              src={story.image}
+                              alt="Card images cap"
+                            />
+                            <h1 className="mt-3 story-subheadings">
+                              {story.title}
+                            </h1>
+                          </div>
+                        </Link>
+
+
+                      </div>
                     </div>
-                  </Link>
-
-
-                </div>
+                  )
+                })
+                }
               </div>
             </div>
+
           );
-        })}
+
+        })
+      }
+
       {
         !library &&
         <div style={{ textAlign: 'center' }}>

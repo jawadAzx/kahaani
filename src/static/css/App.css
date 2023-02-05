@@ -3,7 +3,7 @@ html {
   /* margin: 0; */
   /* height: 100%; */
   /* overflow-y: hidden; */
-  background-color: #ffd459;
+  background-color: #fff;
 }
 
 a {
@@ -357,7 +357,7 @@ audio {
   align-items: center;
   justify-content: center;
   margin-top: 2vh;
-  width: 100%;  
+  width: 100%;
 }
 
 .audio-set {
@@ -470,7 +470,8 @@ audio {
   position: relative;
   background-color: #F8D66E;
   overflow: hidden;
-  top: -1vh;
+  width: 100%;
+  top: 99%;
 }
 
 .textfooter {
@@ -521,6 +522,7 @@ audio {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -528,38 +530,52 @@ audio {
 
 .edits {
   min-width: 320px;
+  height: max-content;
   border-radius: 20px;
   background: #fdfbfb;
   margin-right: 6px;
+  flex-wrap: wrap;
 }
 
 .edits:hover {
-  background-color: #f1f1ef;
+  background-color: hsla(125, 66%, 83%, 0.725);
   transition: background-color 500ms;
 }
-.subject-heading{
+
+.subject-heading {
   min-width: 300px;
   overflow: hidden;
   white-space: nowrap;
 
 }
 
-.logo-image{
+.logo-image {
   margin-left: 40px;
 }
+
 .-fullwidth {
- width: 100%; 
- margin-right: 30px;
+  width: 100%;
+  margin-right: 30px;
 
 }
-.story-subheadings{
+
+.story-subheadings {
   font-family: sans-serif;
   font-weight: 200;
   font-size: 20px;
   text-align: center;
 }
 
-.search-group{
+.search-group {
   margin-right: 27%;
   width: 40%;
+}
+
+.row-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
