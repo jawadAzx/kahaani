@@ -15,7 +15,7 @@ function Library() {
   const [library, setLibrary] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/story/getStories").then(
+    axios.get("https://kahaani-backend.onrender.com/api/story/getStories").then(
       response => {
         console.log(response.data.dataItems);
         const dee = response.data.dataItems;
