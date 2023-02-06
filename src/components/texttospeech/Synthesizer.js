@@ -11,7 +11,7 @@ function Synthesizer() {
     const [synthesize, setSynthesize] = useState(false);
     const [audioStorage, setAudioStorage] = useState(null);
     const [characterCount, setCharacterCount] = useState(0);
-    const handleChange = (e) =>{
+    const handleChange = (e) => {
         setText(e.target.value)
         setCharacterCount(e.target.value.length)
     }
@@ -21,11 +21,11 @@ function Synthesizer() {
         const url = "https://api.kahaani.fun/synthesize"
         const body = {
             // add quotation marks to text 
-            "text" : `"${text}"`
+            "text": `"${text}"`
         }
-        
+
         // make get fetch request
-        fetch( url, {
+        fetch(url, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -51,43 +51,42 @@ function Synthesizer() {
     }
     return (
         <div className="maindiv">
-            <div className="d-flex justify-content-center">
-                <h1 className="text-black mt-3 heading">Text to Speech Converter</h1>
+            <div className="tts-heading">
+                <h1 >Text to Speech Converter</h1>
             </div>
-            <div className="d-flex justify-content-center">
-                <div className="main mb-3">
-                <div class='charcount'>{characterCount}</div>
-                        <textarea
-                            type="text"
-                            onChange = {handleChange}
-                            className="form-control1 rounded1 wideInput"
-                            maxLength= "10000"
-                            placeholder="اردو میں لکھیں"
-                            value={text}
-                        />
-                    
-                    <div className="bottom-container">
-                        <button className="btn mb-3 listen" onClick={playAudio}>Listen to the audio file</button>
-                        {get ? <audio className="audio-set" controls>
-                            <source src={audioStorage} type="audio/wav" />
-                        </audio> : <div>
-                            {
-                                synthesize ? <div style={{ textAlign: 'center' }}>
-                                    <h1>LOADING</h1>
-                                    <Loader
-                                        type="RevolvingDot"
-                                        color="#4ac890"
-                                        height={100}
-                                        width={100}
-                                    />
-                                </div>
-                                    : null
-                            }
-                        </div>}
-                    </div>
+            <div className="tts-container">
+
+                <textarea
+                    type="text"
+                    onChange={handleChange}
+                    className="form-control1 rounded1 wideInput"
+                    maxLength="10000"
+                    placeholder="اردو میں لکھیں"
+                    value={text}
+                />
+                <div className="charcount"> {characterCount} / 10000 Characters</div>
+                <div className="bottom-container">
+                    <button className="btn mb-3 listen" onClick={playAudio}>Listen to the audio file</button>
+                    {get ? <audio className="audio-set" controls>
+                        <source src={audioStorage} type="audio/wav" />
+                    </audio> : <div>
+                        {
+                            synthesize ? <div style={{ textAlign: 'center' }}>
+                                <h1>LOADING</h1>
+                                <Loader
+                                    type="RevolvingDot"
+                                    color="#4ac890"
+                                    height={100}
+                                    width={100}
+                                />
+                            </div>
+                                : null
+                        }
+                    </div>}
+
                 </div>
             </div>
-            <Footer isLibrary={false} isSynthesizer={true}/>
+            <Footer isLibrary={false} isSynthesizer={true} />
         </div>
     );
 }

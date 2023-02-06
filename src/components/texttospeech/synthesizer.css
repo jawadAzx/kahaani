@@ -1,4 +1,4 @@
-.heading{
+.heading {
     position: relative;
     top: 6vh;
     align-items: center;
@@ -7,51 +7,92 @@
     font-weight: bolder;
 
 }
-.form-control1{
+
+.tts-heading {
+    font-size: 2.0rem;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: bolder;
+    margin-top: 2rem;
+
+}
+
+.form-control1 {
     display: block;
     position: relative;
-    height:38vh;
+    height: 38vh;
     top: -7vh;
     width: 50vw;
     border: 0.5px solid;
-    padding:2%;
+    padding: 2%;
 }
-.maindiv{
+
+.maindiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
     background-color: #F8D66E;
     height: 92vh;
 }
+
 @import url(http://fonts.googleapis.com/earlyaccess/notonastaliqurdudraft.css);
-textarea{
-    font-family: 'Noto Nastaliq Urdu Draft', serif ;
+
+textarea {
+    font-family: 'Noto Nastaliq Urdu Draft', serif;
 }
 
-textarea::placeholder{
+textarea::placeholder {
     position: relative;
     text-align: right;
     font-family: 'Noto Nastaliq Urdu Draft', serif;
 }
-.rounded1{
+
+.rounded1 {
     border-radius: 1rem;
     text-align: right;
 }
 
-.charcount{
-    position: relative;
+.charcount-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.charcount {
+    /* position: relative;
     background: transparent;
     padding: 40px;
-    border-radius: 10px;
-    width: 50%;
+    border-radius: 10px; */
+    /* width: 50%; */
     /* margin: 40px auto; */
-    right:14vw;
+    /* right: 14vw; */
     font-weight: bold;
-    top:46vh;
-    margin-left: 152px;
+    /* margin-left: 152px; */
+    font-family: "Montserrat Alternates", sans-serif;
+    font-size: 10pt;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin-right: 50%;
+    width: 50%;
+
+
 }
 
 
-.charcount::after{
-    content: attr(data-charcount) "/10000 Characters";
+
+.charcount::after {
+    /* content: attr(data-charcount) "/10000 Characters"; */
     position: relative;
     font-size: 10pt;
     color: rgb(0, 0, 0);
+}
+
+.tts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
 }
