@@ -1,23 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/images/Logo.png";
+import Logo from "../../assets/images/Logo_Kahaani.png";
 import "../../static/css/App.css"
+import  {AiOutlineSearch} from "react-icons/ai";
 function Header() {
   return (
-    <nav className="navbar navbar-light justify-content-left navbar-styling d-flex flex-nowrap">
-      <a className="brand">
+    <nav className="navbar">
         <Link to="">
-          <img src={Logo} className="logo logo-image" alt="" />
+          <img src={Logo} className="logo" alt="" />
         </Link>
-      </a>
-      
+        <p className="heading-homepage">KAHAANI</p>
           <div className="form-group has-search rounded search-group">
-            <span className="fa fa-search form-control-feedback"></span>
-            <input
-              type="text"
-              className="form-control rounded"
-              placeholder="Search a story..."
-            />
+          <AiOutlineSearch size={40} className="search-icon"/>
           </div>
         
     </nav>

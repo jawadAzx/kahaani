@@ -3,7 +3,7 @@ import Loader from "react-loader-spinner";
 import Footer from "../footer/Footer";
 import './synthesizer.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-
+import AudioPlayer from "./AudioPlayer";
 
 function Synthesizer() {
     const [text, setText] = useState("");
@@ -67,9 +67,7 @@ function Synthesizer() {
                 <div className="charcount"> {characterCount} / 10000 Characters</div>
                 <div className="bottom-container">
                     <button className="btn mb-3 listen" onClick={playAudio}>Listen to the audio file</button>
-                    {get ? <audio className="audio-set" controls>
-                        <source src={audioStorage} type="audio/wav" />
-                    </audio> : <div>
+                    {get ? <AudioPlayer src={audioStorage} /> : <div>
                         {
                             synthesize ? <div style={{ textAlign: 'center' }}>
                                 <h1>LOADING</h1>

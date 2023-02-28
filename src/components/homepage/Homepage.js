@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import libraryLogo from "../../assets/images/library-logo.svg"
-import SynthesizerLogo from "../../assets/images/synth-logo.svg"
-import HomeLogo from "../../assets/images/home-illus.svg"
+import Homelogo from "../../assets/images/Homelogo.png";
 import Footer from "../footer/Footer";
-import './Homepage.css'
+import './Homepage.css';
 
 function Homepage() {
   return (
@@ -12,42 +10,35 @@ function Homepage() {
       <div className="row">
         <div className="col change-text">
           <div className="container mt-5 ">
-            <h1 className="top-text pad-left">Let’s Learn Urdu!</h1>
-            <h1 className="top-text pad-left">By Listening to</h1>
-            <h1 className="top-text pad-left">Short Stories</h1>
+            <h1 className="top-text pad-left">An Urdu Audio Book Reader</h1>
+            <h3 className="homepage-text pad-left">You can listen to Urdu story books at same time</h3>
+            <h3 className="homepage-text pad-left">OR</h3>
+            <h3 className="homepage-text pad-left">Enter any text and listen to the audio file</h3>
           </div>
-          <div className="container mt-top-10 pad-left .d-none .d-sm-block">
+          <div className="container mt-top-10 pad-left .d-none">
             <div className="row">
               <div className="col">
-                <Link to="/library/">
-                  <img
-                    src={libraryLogo}
-                    className="home-icons"
-                  />
-                  <h2 className="pad-left make-bold m-left-mobile">Library</h2>
+              <br></br>
+                <Link to="/library">
+                  <button class="btn btn-primary button-text" >Go to Library</button>
                 </Link>
               </div>
-              <div className="col">
+            <div className="row">
+            <div className="col">
+              <br></br>
                 <Link to="/synthesizer">
-                  <img
-                    src={SynthesizerLogo}
-                    className="home-icons"
-                  />
-                  <h2 className="make-bold m-left-mobile2">
-                    Text to Speech
-                  </h2>
+                <button class="btn btn-primary button-text" >Convert Text to Audio</button>
                 </Link>
-              </div>
+            </div>
+            </div>
             </div>
           </div>
         </div>
-
         <div className="col vh-100 d-none d-lg-block">
-          <img src={HomeLogo} className="home-illus" />
+          <img src={Homelogo} className="home-illus" />
         </div>
       </div>
-    <Footer isLibrary = {false}
-    />
+      <Footer isLibrary = {false}/>
     </div>
   );
 }

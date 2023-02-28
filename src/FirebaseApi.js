@@ -1,5 +1,5 @@
 import { db } from "./FirebaseConfig";
-import { collection, Firestore, getDocs, addDoc } from "firebase/firestore";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 import { storage } from "./FirebaseConfig";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 

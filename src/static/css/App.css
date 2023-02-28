@@ -17,20 +17,44 @@ a:hover {
   color: #4ac890;
 }
 
-.logo {
-  top: 4px;
-  width: 20rem;
-  height: 3.5rem;
+/* Navbar styling */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+.heading-homepage{
+  display:inline-block;
+  position: fixed;
+  top:3vh;
+  left:45%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size:36px;
 }
-
+.logo {
+  position:fixed;
+  top: 3vh;
+  left:15vh;
+}
+.search-icon{
+  position: fixed;
+  right:15vh;
+  top:3vh;
+}
+.navbar{
+  display:flex;
+  text-align: center;
+  display: inline-block;
+  position:fixed;
+  height: 10vh;
+  width:100%;
+}
 .footer-styling {
   box-shadow: 0 4px 10px rgb(0 0 0 / 30%);
 }
 
-.navbar-styling {
+/* .navbar-styling {
   background-color: #4ac890;
   box-shadow: 0 4px 10px rgb(0 0 0 / 30%);
-}
+} */
 
 .bg-yellow {
   background-color: #ffd459;
@@ -93,9 +117,12 @@ a:hover {
 }
 
 .home-illus {
-  width: inherit;
-  height: 65%;
-  margin-top: 2rem;
+  background-color: #ffd459;
+  width:90%;
+  height: 90%;
+  position: relative;
+  top:10vh;
+  background: transparent;
 }
 
 .home-icons {

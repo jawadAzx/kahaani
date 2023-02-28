@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from "./components/homepage/Homepage";
 import Library from "./components/library/Library";
 import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
 import Player from "./components/player/Player";
 import Testing from "./components/testing/Testing";
 import Synthesizer from "./components/texttospeech/Synthesizer";
@@ -43,4 +42,3 @@ function App() {
 
 export default App;
 
-// ReactDOM.render(<App />, document.getElementById("app"));
