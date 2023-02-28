@@ -106,14 +106,16 @@ a:hover {
 .heading-text {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 500;
+  position: relative;
+  margin-top: 2%;
 }
 
 .sub-heading-text {
-  font-family: "Montserrat Alternates", sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
+  font-family: "Montserrat Alternates";
+  font-size: 16px;
+  font-weight: 300;
+  
 }
 
 .home-illus {
@@ -554,12 +556,13 @@ audio {
 }
 
 .edits {
-  min-width: 320px;
+  min-width: 200px;
   height:max-content;
   border-radius: 20px;
   background: #fdfbfb;
   margin-right: 6px;
   flex-wrap: wrap;
+  padding-top: 2%;
 }
 
 .edits:hover {
@@ -587,8 +590,10 @@ audio {
 .story-subheadings {
   font-family: sans-serif;
   font-weight: 200;
-  font-size: 20px;
-  text-align: center;
+  font-size: 15px;
+  text-align: left;
+  line-height: 2px;
+  margin-left: 7%;
 }
 
 .search-group {
@@ -603,4 +608,9 @@ audio {
   align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+.image-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }

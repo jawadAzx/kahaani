@@ -1,0 +1,19 @@
+.navbar-custom{
+    height: 80px;
+    background-color: rgb(255, 255, 255,1);
+    margin-top: 0%;
+    position: fixed;
+    
+
+}
+.inner-div{
+    height: 30px;
+    box-shadow: inset;
+    border-bottom: 3px;
+}
+
+.style-nav{
+    background-color: rgb(255, 255, 255,1);
+    opacity: 1;
+    
+}

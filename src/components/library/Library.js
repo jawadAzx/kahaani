@@ -47,8 +47,8 @@ function Library() {
                   console.log(story)
                   return (
                     <div className="wrapper mt-3">
-                      <div key={index} className={`column d-flex flex-column align-items-center p-2 edits`}>
-                        <h2 className="heading-text ml-3 subject-headings">{story.title}</h2>
+                      <div key={index} className={`column d-flex flex-column align-items-left p-4 edits`}>
+                        
 
                         <Link key={index} to={{
                           pathname: "/player/:1",
@@ -60,7 +60,7 @@ function Library() {
                         }}
                         >
 
-                          <div>
+                          <div className="image-container">
                             <img
                               className="card-image"
                               style={{ objectFit: "contain" }}
@@ -69,6 +69,9 @@ function Library() {
                             />
                             <h1 className="mt-3 story-subheadings">
                               {story.title}
+                            </h1>
+                            <h1 className="mt-3 story-subheadings">
+                              Author Name
                             </h1>
                           </div>
                         </Link>
@@ -94,8 +97,7 @@ function Library() {
 
         </div>
       }
-      <Footer isLibrary = {true}
-    />
+      
     </div >
   );
 }
