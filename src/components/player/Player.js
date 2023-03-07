@@ -6,8 +6,9 @@ import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import audioSource from "../../assets/audio/taimoor.wav"
 import microScope from "../../assets/images/microscope-line-art.png"
-
-
+import "./Player.css"
+import decor from "./img.png"
+import AudioPlayer from "./AudioPlayer";
 /*
 Code taken from: https://www.codepunker.com/blog/sync-audio-with-text-using-javascript
 */
@@ -17,8 +18,8 @@ function Player(props) {
     const firstScroll = useRef(null)
     const secondScroll = useRef(null)
 
-    const { audio, text, title } = props.location.state
-    console.log(audio, JSON.parse(text))
+    const { audio, text, title, img } = props.location.state
+    // console.log(audio, JSON.parse(text))
     /**
      * type 0 = regular string
      * type 1 = word with definition (English Urdu both)
@@ -49,121 +50,153 @@ function Player(props) {
                 scrollDown(secondScroll)
             }
         });
+        console.log(newBgColors);
         setBgColors(newBgColors);
     };
 
 
     /**
      * Making the API request for the story
-     */
-    useEffect(() => {
-        fetch("/api/library/" + props.match.params.id)
-            .then((response) => {
-                if (response.status > 400) {
-                    return null;
-                }
-                return response.json();
-            })
-            .then((data) => {
-                //
-                // Add code here to set data recieved from backend
-                // ...
-                console.log(data);
-            });
-    }, []);
+    //  */
+    // useEffect(() => {
+    //     fetch("/api/library/" + props.match.params.id)
+    //         .then((response) => {
+    //             if (response.status > 400) {
+    //                 return null;
+    //             }
+    //             return response.json();
+    //         })
+    //         .then((data) => {
+    //             //
+    //             // Add code here to set data recieved from backend
+    //             // ...
+    //             console.log(data);
+    //         });
+    // }, []);
 
     const scrollDown = (ref) => {
         ref.current?.scrollIntoView(({ behavior: "smooth", block: "end", inline: "nearest" }))
     }
 
+
     return (
-        <div className="height-100 player-bg">
-            <div className="d-flex justify-content-center">
-                <h1 className="text-gray heading-text mt-2 story-title">{title}</h1>
-            </div>
-            <div className="text-box centered mt-3">
-                <div className="p-3 urdu-text">
-                    <container id="subtitles" className="urdu-text">
-                        {syncData.map((data, i) => {
-                            if (data.type == 0) {
-                                if (data.start == '22.2') {
-                                    return (
-                                        <span id={"c_" + i} style={{ background: bgColors[i] }} key={i} className="urdu-text" ref={firstScroll}>
-                                            {" " + data.text}
-                                        </span>
-                                    )
-                                }
-                                if (data.start == '28.1') {
-                                    return (
-                                        <span id={"c_" + i} style={{ background: bgColors[i] }} key={i} className="urdu-text" ref={secondScroll}>
-                                            {" " + data.text}
-                                        </span>
-                                    )
-                                }
+        <div className="player">
+            <div className="player-sub-container">
+                <div className="player-text-box">
+                    <container id="subtitles" className="player-text">
+                        {
+                            syncData.map((data, i) => {
+                                { console.log(bgColors[i]) }
                                 return (
-                                    <span id={"c_" + i} style={{ background: bgColors[i] }} key={i} className="urdu-text">
+                                    <span id={"c_" + i} style={{ background: bgColors[i] }} key={i} className="player-text" ref={firstScroll}>
                                         {" " + data.text}
                                     </span>
                                 )
-                            }
-                            if (data.type == 1) {
-                                return (
-                                    <Popup trigger={<button class="popup-button">
-                                        <span id={"c_" + i} style={{ background: bgColors[i] }} key={i} className="urdu-text">
-                                            {" " + data.text}
-                                        </span>
-                                    </button>} modal>
-                                        <h4 className="urdu-text" >عکس : Reflection</h4>
-                                    </Popup>
-                                )
-                            }
-                            if (data.type == 2) {
-                                return (
-                                    <Popup trigger={<button class="popup-button">
-                                        <span id={"c_" + i} style={{ background: bgColors[i] }} key={i} className="urdu-text">
-                                            {" " + data.text}
-                                        </span>
-                                    </button>} modal>
-                                        <h4 style={{ textAlign: "center" }}>Microscope: (noun) magnifier of the image of small objects.</h4>
-                                        <h4 className="urdu-text" style={{ textAlign: "center" }}>خوردبین: (اسم) جو چھوٹی چیزوں کو کئی گنا بڑا کر کے دکھاتا ہے</h4>
-                                        <br />
-                                        <div className='popup-image'>
-                                            <img src={microScope} width={350} height={350} />
-                                        </div>
-                                    </Popup>
-                                )
-                            }
-                            if (data.type == 3) {
-                                return (
-                                    <Popup trigger={<button class="popup-button">
-                                        <span id={"c_" + i} style={{ background: bgColors[i] }} key={i} className="urdu-text">
-                                            {" " + data.text}
-                                        </span>
-                                    </button>} modal>
-                                        <h3 className="urdu-text" style={{ textAlign: "center" }}>خوردبینی جاندار</h3>
-                                        <h4 className="urdu-text" style={{ textAlign: "center" }}>ایک جاندار جو صرف خوردبین کے ذریعے دیکھا جا سکتا ہے۔</h4>
-                                        <br />
-                                        <div className='popup-image'>
-                                            <iframe width={350} height={350} src={'https://www.youtube.com/embed/aPmPep2r6uo'} />
-                                        </div>
-                                    </Popup>
-                                )
-                            }
-                        })}
+                            })
+                        }
                     </container>
                 </div>
             </div>
-            <div className="d-flex justify-content-center">
-                <audio
-                    className="mt-4 rounded bg-black player-attributes"
-                    id="audiofile"
-                    ref={audioPlayer}
-                    src={audio}
-                    onTimeUpdate={handleTimeChange}
-                    controls
-                ></audio>
+            <div className="audio-player-container">
+                <AudioPlayer src={audio} text={text} title={title} handlee={handleTimeChange}
+                />
+                < div className="audio-player-img-name-container">
+                    <img className="audio-player-img" src={img} />
+                    <div className="audio-player-name-container">
+                        <h1 className="audio-player-name">{title}</h1>
+                    </div>
+                </div>
             </div>
         </div>
+        // <div className="height-100 player-bg">
+        //     <div className="d-flex justify-content-center">
+        //         <h1 className="text-gray heading-text mt-2 story-title">{title}</h1>
+        //     </div>
+        //     <div className="text-box centered mt-3">
+        //         <div className="p-3 urdu-text">
+        //             <container id="subtitles" className="urdu-text">
+        //                 {syncData.map((data, i) => {
+        //                     if (data.type == 0) {
+        //                         if (data.start == '22.2') {
+        //                             return (
+        //                                 <span id={"c_" + i} style={{ background: bgColors[i] }} key={i} className="urdu-text" ref={firstScroll}>
+        //                                     {" " + data.text}
+        //                                 </span>
+        //                             )
+        //                         }
+        //                         if (data.start == '28.1') {
+        //                             return (
+        //                                 <span id={"c_" + i} style={{ background: bgColors[i] }} key={i} className="urdu-text" ref={secondScroll}>
+        //                                     {" " + data.text}
+        //                                 </span>
+        //                             )
+        //                         }
+        //                         return (
+        //                             <span id={"c_" + i} style={{ background: bgColors[i] }} key={i} className="urdu-text">
+        //                                 {" " + data.text}
+        //                             </span>
+        //                         )
+        //                     }
+        //                     if (data.type == 1) {
+        //                         return (
+        //                             <Popup trigger={<button class="popup-button">
+        //                                 <span id={"c_" + i} style={{ background: bgColors[i] }} key={i} className="urdu-text">
+        //                                     {" " + data.text}
+        //                                 </span>
+        //                             </button>} modal>
+        //                                 <h4 className="urdu-text" >عکس : Reflection</h4>
+        //                             </Popup>
+        //                         )
+        //                     }
+        //                     if (data.type == 2) {
+        //                         return (
+        //                             <Popup trigger={<button class="popup-button">
+        //                                 <span id={"c_" + i} style={{ background: bgColors[i] }} key={i} className="urdu-text">
+        //                                     {" " + data.text}
+        //                                 </span>
+        //                             </button>} modal>
+        //                                 <h4 style={{ textAlign: "center" }}>Microscope: (noun) magnifier of the image of small objects.</h4>
+        //                                 <h4 className="urdu-text" style={{ textAlign: "center" }}>خوردبین: (اسم) جو چھوٹی چیزوں کو کئی گنا بڑا کر کے دکھاتا ہے</h4>
+        //                                 <br />
+        //                                 <div className='popup-image'>
+        //                                     <img src={microScope} width={350} height={350} />
+        //                                 </div>
+        //                             </Popup>
+        //                         )
+        //                     }
+        //                     if (data.type == 3) {
+        //                         return (
+        //                             <Popup trigger={<button class="popup-button">
+        //                                 <span id={"c_" + i} style={{ background: bgColors[i] }} key={i} className="urdu-text">
+        //                                     {" " + data.text}
+        //                                 </span>
+        //                             </button>} modal>
+        //                                 <h3 className="urdu-text" style={{ textAlign: "center" }}>خوردبینی جاندار</h3>
+        //                                 <h4 className="urdu-text" style={{ textAlign: "center" }}>ایک جاندار جو صرف خوردبین کے ذریعے دیکھا جا سکتا ہے۔</h4>
+        //                                 <br />
+        //                                 <div className='popup-image'>
+        //                                     <iframe width={350} height={350} src={'https://www.youtube.com/embed/aPmPep2r6uo'} />
+        //                                 </div>
+        //                             </Popup>
+        //                         )
+        //                     }
+        //                 })}
+        //             </container>
+        //         </div>
+        //     </div>
+        //     <div className="d-flex justify-content-center">
+        //         <audio
+        //             className="mt-4 rounded bg-black player-attributes"
+        //             id="audiofile"
+        //             ref={audioPlayer}
+        //             src={audio}
+        //             onTimeUpdate={handleTimeChange}
+        //             controls
+        //         ></audio>
+        // <AudioPlayer src={audio} text={text} title={title} onTimeUpdate={handleTimeChange}
+
+        //     </div>
+        // </div>
     );
 }
 

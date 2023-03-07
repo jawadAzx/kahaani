@@ -27,17 +27,17 @@ a:hover {
   font-family: 'Open Sans', sans-serif;
   font-weight: 900;
   font-style: normal;
-  font-size:36px;
+  font-size:calc(1.5rem + 0.390625vw);
 }
 .logo {
-  position:fixed;
-  top: 3vh;
-  left:15vh;
+  position:relative;
+  top: 1vh;
+  left:5vh;
 }
 .search-icon{
   position: fixed;
-  right:15vh;
-  top:3vh;
+  right:10vh;
+  top:4vh;
 }
 .navbar{
   display:flex;
@@ -65,7 +65,7 @@ a:hover {
 }
 
 .pad-left {
-  padding-left: 12%;
+  padding-left: 10%;
 }
 
 .pad-left-14 {
@@ -85,8 +85,9 @@ a:hover {
 
 .top-text {
   font-family: "Montserrat Alternates", sans-serif;
-  font-size: 2rem;
+  font-size: calc(1.2rem + 0.390625vw);
   font-weight: 600;
+  font-weight: bold;
   text-align: center;
   padding-left: 0%;
 }
@@ -120,8 +121,8 @@ a:hover {
 
 .home-illus {
   background-color: #ffd459;
-  width:90%;
-  height: 90%;
+  width: 95%;
+  height:95%;
   position: relative;
   top:10vh;
   background: transparent;
@@ -257,10 +258,10 @@ a:hover {
   }
 
   .top-text {
-    font-size: 3rem;
+    font-size: calc(2rem + 0.390625vw);
     font-weight: bold;
     text-align: left;
-    padding-left: 12%;
+    padding-left: 10%;
   }
 
   .home-icons {
@@ -502,8 +503,9 @@ audio {
 }
 
 .textfooter {
-  padding-left: 4vh;
+  padding-left: 2vh;
   font-weight: bold;
+  font-size: calc(0.5rem + 0.390625vw);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
@@ -513,6 +515,9 @@ audio {
   color: #ffff;
   padding: 12px;
   font: 'Open Sans'
+}
+.btn.synthesizer{
+  padding: 1% 3% 1% 3%;
 }
 
 .App {

@@ -9,6 +9,7 @@ import Footer from "../footer/Footer";
 import { db } from "../../FirebaseConfig";
 import axios from "axios"
 import './Library.css'
+import Header from "../header/Header";
 //import Loader from "react-loader-spinner";
 
 //import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -34,7 +35,7 @@ function Library() {
 
   return (
     <div className="library">
-
+    <Header isLibrary={true}/>
       {library &&
         Object.keys(library).map((genre, index) => {
           const data = library[genre];
@@ -48,7 +49,7 @@ function Library() {
                   return (
                     <div className="wrapper mt-3">
                       <div key={index} className={`column d-flex flex-column align-items-left p-4 edits`}>
-                        
+
 
                         <Link key={index} to={{
                           pathname: "/player/:1",
@@ -56,6 +57,7 @@ function Library() {
                             audio: story.audio,
                             text: story.text,
                             title: story.title,
+                            img: story.image,
                           }
                         }}
                         >
@@ -97,8 +99,11 @@ function Library() {
 
         </div>
       }
-      
-    </div >
+    <Footer isLibrary={true} isSynthesizer={true}/>
+    </div>
+   
+    
   );
+  
 }
 export default Library;

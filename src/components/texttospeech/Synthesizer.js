@@ -4,13 +4,16 @@ import Footer from "../footer/Footer";
 import './synthesizer.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import AudioPlayer from "./AudioPlayer";
-
+import {TbLoader} from "react-icons/tb";
+import Header from "../header/Header";
 function Synthesizer() {
     const [text, setText] = useState("");
     const [get, setGet] = useState(false);
     const [synthesize, setSynthesize] = useState(false);
     const [audioStorage, setAudioStorage] = useState(null);
     const [characterCount, setCharacterCount] = useState(0);
+    const[buttonText,setButtonText] = useState("Listen to the audio file")
+    const [icon,setIcon] = useState("")
     const handleChange = (e) => {
         setText(e.target.value)
         setCharacterCount(e.target.value.length)
@@ -18,6 +21,8 @@ function Synthesizer() {
     const playAudio = async (id) => {
         setGet(false)
         setSynthesize(true)
+        setButtonText("Loading")
+        setIcon(<TbLoader size={20}/>)
         const url = "https://api.kahaani.fun/synthesize"
         const body = {
             // add quotation marks to text 
@@ -51,6 +56,7 @@ function Synthesizer() {
     }
     return (
         <div className="maindiv">
+        <Header isLibrary={false}/>
             <div className="tts-heading">
                 <h1 >Text to Speech Converter</h1>
             </div>
@@ -66,18 +72,10 @@ function Synthesizer() {
                 />
                 <div className="charcount"> {characterCount} / 10000 Characters</div>
                 <div className="bottom-container">
-                    <button className="btn mb-3 listen" onClick={playAudio}>Listen to the audio file</button>
+                    <button className="btn synthesizer mb-3 listen" style={{background:characterCount < 1?"#808080":'#6485E2'}} onClick={playAudio}>{buttonText} {icon}</button>
                     {get ? <AudioPlayer src={audioStorage} /> : <div>
                         {
-                            synthesize ? <div style={{ textAlign: 'center' }}>
-                                <h1>LOADING</h1>
-                                <Loader
-                                    type="RevolvingDot"
-                                    color="#4ac890"
-                                    height={100}
-                                    width={100}
-                                />
-                            </div>
+                            synthesize ? null
                                 : null
                         }
                     </div>}

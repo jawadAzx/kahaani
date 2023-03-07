@@ -1,4 +1,11 @@
 .library{
-    padding-top: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    height:100vh;
 }
-
+.heading-text{
+    margin-top: 10%;
+}

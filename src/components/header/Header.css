@@ -1,6 +1,6 @@
 .navbar-custom{
     height: 80px;
-    background-color: rgb(255, 255, 255,1);
+    background-color:#F8D66E;
     margin-top: 0%;
     position: fixed;
     
@@ -12,8 +12,19 @@
     border-bottom: 3px;
 }
 
-.style-nav{
-    background-color: rgb(255, 255, 255,1);
-    opacity: 1;
-    
+
+@media screen and (min-width:300px) and (max-width:500px){
+    .logo{
+        display: flex;
+        position: fixed;
+        top:3vh;
+        left:40vw;
+
+    }
+    .search-icon{
+        visibility: hidden;
+    }
+    .navbar-header{
+        visibility: hidden;
+    }
 }

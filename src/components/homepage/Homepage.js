@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import Homelogo from "../../assets/images/Homelogo.png";
 import Footer from "../footer/Footer";
 import './Homepage.css';
+import Header from "../header/Header";
 
 function Homepage() {
   return (
     <div className="homepage">
+    <Header isLibrary={false}/>
       <div className="row">
         <div className="col change-text">
           <div className="container mt-5 ">
@@ -34,7 +36,7 @@ function Homepage() {
             </div>
           </div>
         </div>
-        <div className="col vh-100 d-none d-lg-block">
+        <div className="col">
           <img src={Homelogo} className="home-illus" />
         </div>
       </div>

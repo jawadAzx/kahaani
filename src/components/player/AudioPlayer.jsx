@@ -73,34 +73,40 @@ function AudioPlayer(props) {
         setPlaybackSpeed(speed);
 
     }
-    console.log(props.src)
-    console.log("HE")
+
     return (
         <div className="audioPlayer">
-            <audio ref={audioPlayer} src={props.src} preload="metadata"></audio>
-            <button className="forwardBackward" onClick={backTen}><GrBackTen size={23.53} /></button>
+            <audio ref={audioPlayer} src={props.src} preload="metadata" ></audio>
+
+            {/*  */}
+            <button className="backward" onClick={backTen}><GrBackTen size={23.53} /></button>
             <button onClick={togglePlayPause} className="playPause">
                 {isPlaying ? <FaPause /> : <FaPlay className="play" />}
             </button>
-            <button className="forwardBackward" onClick={forwardTen}> <GrForwardTen size={23.53} /></button>
+            <button className="forward" onClick={forwardTen}> <GrForwardTen size={23.53} /></button>
+            {/*  */}
 
-            {/* current time */}
-            <div className="currentTime">{calculateTime(currentTime)}</div>
-
-            {/* progress bar */}
-            <div>
-                <input type="range" className="progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
-            </div>
-
-            {/* duration */}
-            <div className="duration">{(duration && !isNaN(duration)) && calculateTime(duration)}</div>
-            {/* playback speed */}
             <button onClick={handlePlaybackSpeed} className="playbackSpeedButton">
                 {playbackSpeed === 1.0 ? "1.0x" : playbackSpeed === 1.5 ? "1.5x" : playbackSpeed === 2.0 ? "2.0x" : "1.0x"}
             </button>
 
+            <div className="play-player">
+                {/* current time */}
+                <div className="currentTime">{calculateTime(currentTime)}</div>
 
-        </div>
+                {/* progress bar */}
+                <div>
+                    <input type="range" className="progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
+                </div>
+
+                {/* duration */}
+                <div className="duration">{(duration && !isNaN(duration)) && calculateTime(duration)}</div>
+                {/* playback speed */}
+            </div>
+
+
+
+        </div >
     )
 }
 
