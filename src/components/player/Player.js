@@ -9,6 +9,8 @@ import microScope from "../../assets/images/microscope-line-art.png"
 import "./Player.css"
 import decor from "./img.png"
 import AudioPlayer from "./AudioPlayer";
+import Header from "../header/Header";
+
 /*
 Code taken from: https://www.codepunker.com/blog/sync-audio-with-text-using-javascript
 */
@@ -81,6 +83,8 @@ function Player(props) {
 
     return (
         <div className="player">
+            <Header isLibrary={true}/>
+
             <div className="player-sub-container">
                 <div className="player-text-box">
                     <container id="subtitles" className="player-text">
