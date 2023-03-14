@@ -77,7 +77,7 @@ function AudioPlayer(props) {
     console.log("HE")
     return (
         <div className="audioPlayer">
-            <div className='sm-row'>
+            <div className='sm-row-2'>
 
                 <audio ref={audioPlayer} src={props.src} preload="metadata"></audio>
                 <button className="forwardBackward" onClick={backTen}><GrBackTen size={23.53} /></button>
