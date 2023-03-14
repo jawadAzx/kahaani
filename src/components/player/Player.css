@@ -11,7 +11,6 @@
     background-repeat: no-repeat;
     background-position: right center;
     background-attachment: fixed;
-
 }
 
 .player-sub-container {
@@ -42,6 +41,7 @@
     height: 100%;
     /* margin-top: 10%; */
 
+
 }
 
 .player-text {
@@ -53,14 +53,14 @@
 }
 
 .audio-player-container {
-    top: 90%;
+    top: 85%;
     position: fixed;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    height: 10%;
+    height: 124px;
     box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.25);
     background-color: #ffffff;
 }
@@ -69,9 +69,9 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
-
-    margin-left: 300px;
+    align-items: flex-start;
+    margin-left: 100px;
+    margin-bottom: 28px;
 
 }
 
@@ -80,7 +80,7 @@
     height: 50px;
     margin-left: 10px;
     margin-right: 10px;
-    /* border-radius: 50%; */
+    border-radius: 8px;
 }
 
 .audio-player-name {
@@ -90,4 +90,87 @@
     line-height: 19.2px;
     text-align: left;
     margin-bottom: 3.5%;
+}
+
+@media screen and (min-width:300px) and (max-width:540px) {
+    .player-sub-container {
+        padding-top: 20%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        width: 90%;
+        /* overflow-y: scroll;
+        direction: rtl; */
+        margin-bottom: 100px;
+        /* Add margin to create space */
+        /* height: 100vh; */
+        min-height: 500px;
+        /* Set a minimum height to ensure enough content */
+
+    }
+
+    .player-text-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        /* margin-top: 10%; */
+        /* background-color: black; */
+        margin-left: 32px;
+        margin-right: 32px;
+        margin-bottom: 59%;
+
+    }
+
+    .player-text {
+        font-family: "Noto Nastaliq Urdu", serif;
+        font-weight: 400;
+        font-size: 32;
+        line-height: 67.2px;
+        text-align: right
+    }
+
+    .audio-player-container {
+        top: 60%;
+        position: fixed;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        height: 298px;
+        box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.25);
+        background-color: #ffffff;
+    }
+
+    .audio-player-img-name-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin-left: 0px;
+        margin-top: 24px;
+    }
+
+    .audio-player-img {
+        width: 66.28px;
+        height: 85.52px;
+        margin-left: 0px;
+        margin-right: 0px;
+        border-radius: 8px;
+    }
+
+    .audio-player-name {
+        font-family: open sans;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19.2px;
+        text-align: left;
+        margin-bottom: 0%;
+        margin-top: 8.48px;
+    }
 }

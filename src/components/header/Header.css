@@ -1,6 +1,6 @@
 .navbar-custom{
     height: 80px;
-    background-color:#F8D66E;
+    background-color:#F7DD6E;
     margin-top: 0%;
     position: fixed;
     
@@ -17,7 +17,7 @@
     .logo{
         display: flex;
         position: fixed;
-        top:3vh;
+        top:2vh;
         left:40vw;
 
     }
@@ -26,5 +26,20 @@
     }
     .navbar-header{
         visibility: hidden;
+    }
+}
+
+@media screen and (min-width:700px) and (max-width:1000px){
+    .navbar{
+        padding-bottom:12%;
+    }
+    .heading-homepage{
+        left:40%;
+    }
+    .logo{
+        left:10%;
+    }
+    .search-icon{
+        right:10%;
     }
 }

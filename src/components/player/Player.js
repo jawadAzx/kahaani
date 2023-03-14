@@ -83,7 +83,7 @@ function Player(props) {
 
     return (
         <div className="player">
-            <Header isLibrary={true}/>
+            <Header isLibrary={true} />
 
             <div className="player-sub-container">
                 <div className="player-text-box">
@@ -101,6 +101,7 @@ function Player(props) {
                     </container>
                 </div>
             </div>
+
             <div className="audio-player-container">
                 <AudioPlayer src={audio} text={text} title={title} handlee={handleTimeChange}
                 />
@@ -110,6 +111,7 @@ function Player(props) {
                         <h1 className="audio-player-name">{title}</h1>
                     </div>
                 </div>
+
             </div>
         </div>
         // <div className="height-100 player-bg">

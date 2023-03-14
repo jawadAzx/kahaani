@@ -27,7 +27,6 @@ function Homepage() {
               </div>
             <div className="row">
             <div className="col">
-              <br></br>
                 <Link to="/synthesizer">
                 <button class="btn btn-primary button-text" >Convert Text to Audio</button>
                 </Link>
