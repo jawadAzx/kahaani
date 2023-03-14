@@ -90,7 +90,7 @@ function AudioPlayer(props) {
                     {playbackSpeed === 1.0 ? "1.0x" : playbackSpeed === 1.5 ? "1.5x" : playbackSpeed === 2.0 ? "2.0x" : "1.0x"}
                 </button>
             </div>
-            <div className="play-player">
+            <div className="play-player-2">
                 {/* current time */}
                 <div className="currentTime">{calculateTime(currentTime)}</div>
                 {/* progress bar */}
