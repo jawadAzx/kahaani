@@ -8,7 +8,7 @@ import { TbLoader } from "react-icons/tb";
 import Header from "../header/Header";
 function Synthesizer() {
     const [text, setText] = useState("");
-    const [get, setGet] = useState(true);
+    const [get, setGet] = useState(false);
     const [synthesize, setSynthesize] = useState(false);
     const [audioStorage, setAudioStorage] = useState(null);
     const [characterCount, setCharacterCount] = useState(0);
