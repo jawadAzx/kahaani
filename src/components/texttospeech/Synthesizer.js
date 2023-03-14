@@ -8,7 +8,7 @@ import { TbLoader } from "react-icons/tb";
 import Header from "../header/Header";
 function Synthesizer() {
     const [text, setText] = useState("");
-    const [get, setGet] = useState(false);
+    const [get, setGet] = useState(true);
     const [synthesize, setSynthesize] = useState(false);
     const [audioStorage, setAudioStorage] = useState(null);
     const [characterCount, setCharacterCount] = useState(0);
@@ -70,7 +70,7 @@ function Synthesizer() {
                 <div className="bottom-container">
                     <div className="charcount"> {characterCount} / 10000 Characters</div>
 
-                    <button className="btn-synth synthesizer mb-3 listen" style={{ background: characterCount < 1 ? "#808080" : '#6485E2' }} onClick={playAudio}>{buttonText} {icon}</button>
+                    {/* <button className="btn-synth synthesizer mb-3 listen" style={{ background: characterCount < 1 ? "#808080" : '#6485E2' }} onClick={playAudio}>{buttonText} {icon}</button> */}
                     {get ? <AudioPlayer src={audioStorage} /> : <div>
                         {
                             synthesize ? null
