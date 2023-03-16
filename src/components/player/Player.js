@@ -1,4 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, useEffect } from 'react'
+import { FaPlay } from "react-icons/fa"
+import { FaPause } from "react-icons/fa"
+import { GrBackTen } from "react-icons/gr"
+import { GrForwardTen } from "react-icons/gr"
+import './audioPlayer.css'
 import libraryLogo from "../../assets/images/library-logo.svg"
 import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
@@ -16,7 +21,6 @@ Code taken from: https://www.codepunker.com/blog/sync-audio-with-text-using-java
 */
 
 function Player(props) {
-    const audioPlayer = useRef(null);
     const firstScroll = useRef(null)
     const secondScroll = useRef(null)
 
@@ -29,6 +33,77 @@ function Player(props) {
      * type 3 = word with definition and video
      */
 
+    // state
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [duration, setDuration] = useState(0);
+    const [currentTime, setCurrentTime] = useState(0);
+    const [playbackSpeed, setPlaybackSpeed] = useState(1.0);
+
+    // references
+    const audioPlayer = useRef();   // reference our audio component
+    const progressBar = useRef();   // reference our progress bar
+    const animationRef = useRef();  // reference the animation
+
+    useEffect(() => {
+        const seconds = Math.floor(audioPlayer.current.duration);
+        setDuration(seconds);
+        progressBar.current.max = seconds;
+    }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState]);
+
+    const calculateTime = (secs) => {
+        const minutes = Math.floor(secs / 60);
+        const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+        const seconds = Math.floor(secs % 60);
+        const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+        return `${returnedMinutes}:${returnedSeconds}`;
+    }
+
+    const togglePlayPause = () => {
+        const prevValue = isPlaying;
+        setIsPlaying(!prevValue);
+        if (!prevValue) {
+            audioPlayer.current.play();
+            animationRef.current = requestAnimationFrame(whilePlaying)
+        } else {
+            audioPlayer.current.pause();
+            cancelAnimationFrame(animationRef.current);
+        }
+    }
+
+    const whilePlaying = () => {
+        progressBar.current.value = audioPlayer.current.currentTime;
+        changePlayerCurrentTime();
+        animationRef.current = requestAnimationFrame(whilePlaying);
+    }
+
+    const changeRange = () => {
+        audioPlayer.current.currentTime = progressBar.current.value;
+        changePlayerCurrentTime();
+    }
+
+    const changePlayerCurrentTime = () => {
+        progressBar.current.style.setProperty('--seek-before-width', `${progressBar.current.value / duration * 100}%`)
+        setCurrentTime(progressBar.current.value);
+    }
+
+    const backTen = () => {
+        progressBar.current.value = Number(progressBar.current.value - 10);
+        changeRange();
+    }
+
+    const forwardTen = () => {
+        console.log(progressBar.current.value)
+        progressBar.current.value = Number(progressBar.current.value + 10);
+        changeRange();
+    }
+    const handlePlaybackSpeed = () => {
+        let speed = playbackSpeed === 1.0 ? 1.5 : playbackSpeed === 1.5 ? 2.0 : playbackSpeed === 2.0 ? 0.5 : playbackSpeed === 0.5 ? 1.0 : 1.0;
+        audioPlayer.current.playbackRate = speed;
+        setPlaybackSpeed(speed);
+
+    }
+
+    // // // // // // // // // // // // 
     const syncData = JSON.parse(text);
 
     // console.log(JSON.stringify(syncData));
@@ -41,43 +116,25 @@ function Player(props) {
         syncData.forEach(function (element, index) {
             if (audioPlayer.current.currentTime >= element.start && audioPlayer.current.currentTime <= element.end) {
                 // console.log(audioPlayer.current.currentTime);
-                newBgColors[index] = "yellow";
+                newBgColors[index] = "#D0DAF6";
             } else {
                 newBgColors[index] = "transparent";
             }
-            if (audioPlayer.current.currentTime >= 11.3 && audioPlayer.current.currentTime < 12.8) {
+            /**
+            console.log(audioPlayer.current.currentTime, audioPlayer.current.currentTime)
+            if (audioPlayer.current.currentTime >= 78 && audioPlayer.current.currentTime < 79) {
+                console.log("scrolling 1")
                 scrollDown(firstScroll)
             }
-            if (audioPlayer.current.currentTime >= 20.4 && audioPlayer.current.currentTime < 22.2) {
-                scrollDown(secondScroll)
-            }
+            */
+
         });
-        console.log(newBgColors);
         setBgColors(newBgColors);
     };
 
 
-    /**
-     * Making the API request for the story
-    //  */
-    // useEffect(() => {
-    //     fetch("/api/library/" + props.match.params.id)
-    //         .then((response) => {
-    //             if (response.status > 400) {
-    //                 return null;
-    //             }
-    //             return response.json();
-    //         })
-    //         .then((data) => {
-    //             //
-    //             // Add code here to set data recieved from backend
-    //             // ...
-    //             console.log(data);
-    //         });
-    // }, []);
-
     const scrollDown = (ref) => {
-        ref.current?.scrollIntoView(({ behavior: "smooth", block: "end", inline: "nearest" }))
+        ref.current?.scrollIntoView(({ behavior: "auto", block: "end", inline: "nearest" }))
     }
 
 
@@ -90,7 +147,6 @@ function Player(props) {
                     <container id="subtitles" className="player-text">
                         {
                             syncData.map((data, i) => {
-                                { console.log(bgColors[i]) }
                                 return (
                                     <span id={"c_" + i} style={{ background: bgColors[i] }} key={i} className="player-text" ref={firstScroll}>
                                         {" " + data.text}
@@ -103,8 +159,33 @@ function Player(props) {
             </div>
 
             <div className="audio-player-container">
-                <AudioPlayer src={audio} text={text} title={title} handlee={handleTimeChange}
-                />
+                <div className="audioPlayer">
+                    <div className='sm-row'>
+                        <audio ref={audioPlayer} src={audio} preload="metadata" onTimeUpdate={handleTimeChange}
+                        ></audio>
+                        {/*  */}
+                        <button className="backward" onClick={backTen}><GrBackTen size={23.53} /></button>
+                        <button onClick={togglePlayPause} className="playPause-button">
+                            {isPlaying ? <FaPause /> : <FaPlay className="play" />}
+                        </button>
+                        <button className="forward" onClick={forwardTen}> <GrForwardTen size={23.53} /></button>
+                        {/*  */}
+                        <button onClick={handlePlaybackSpeed} className="playbackSpeedButton-sm">
+                            {playbackSpeed === 1.0 ? "1.0x" : playbackSpeed === 1.5 ? "1.5x" : playbackSpeed === 2.0 ? "2.0x" : playbackSpeed === 0.5 ? "0.5x" : "1.0x"}
+                        </button>
+                    </div>
+                    <div className="play-player">
+                        {/* current time */}
+                        <div className="currentTime">{calculateTime(currentTime)}</div>
+                        {/* progress bar */}
+                        <div className="pbx7">
+                            <input type="range" className="progressBar-f1" defaultValue="0" ref={progressBar} onChange={changeRange} />
+                        </div>
+                        {/* duration */}
+                        <div className="duration">{(duration && !isNaN(duration)) && calculateTime(duration)}</div>
+                        {/* playback speed */}
+                    </div>
+                </div >
                 < div className="audio-player-img-name-container">
                     <img className="audio-player-img" src={img} />
                     <div className="audio-player-name-container">

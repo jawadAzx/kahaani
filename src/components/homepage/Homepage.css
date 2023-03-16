@@ -27,7 +27,8 @@
     justify-content: center;
     position: relative;
     top:13vh;
-    font-size: calc(10px + 0.390625vw);
+    font-weight: bold;
+    font-size: calc(0.7rem + 0.390625vw);
     width: 40%;
     padding:2%;
     font-weight: 300;
@@ -48,10 +49,14 @@
         padding-left:2% !important;
         text-align: center;
     }
+    .button-text{
+        font-weight: normal;
+    }
     .btn{
         position: relative;
-        left:24.5%;
         top:5vh;
+        width: 80%;
+        left:5%;
     }
     .homepage-text{
         font-size: calc(0.9rem + 0.390625vw);
@@ -94,6 +99,9 @@
         top:15vh;
 
 
+    }
+    .button-text{
+        font-weight: bold;
     }
     .homepage-text{
         font-size: calc(0.9rem + 0.390625vw);
