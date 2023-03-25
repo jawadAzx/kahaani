@@ -64,11 +64,14 @@ function AudioPlayer(props) {
     }
 
     const forwardTen = () => {
-        progressBar.current.value = Number(progressBar.current.value + 10);
+        const newTime = Number(progressBar.current.value) + 10;
+        const maxValue = progressBar.current.max;
+        const currentTime = newTime > maxValue ? maxValue : newTime;
+        progressBar.current.value = currentTime;
         changeRange();
     }
     const handlePlaybackSpeed = () => {
-        let speed = playbackSpeed === 1.0 ? 1.5 : playbackSpeed === 1.5 ? 2.0 : 1.0;
+        let speed = playbackSpeed === 1.0 ? 1.5 : playbackSpeed === 1.5 ? 2.0 : playbackSpeed === 2.0 ? 0.5 : 1.0;
         audioPlayer.current.playbackRate = speed;
         setPlaybackSpeed(speed);
 
@@ -76,18 +79,16 @@ function AudioPlayer(props) {
     console.log(props.src)
     console.log("HE")
     return (
-        <div className="audioPlayer">
+        <div className="audioPlayer-s">
             <div className='sm-row-2'>
-
                 <audio ref={audioPlayer} src={props.src} preload="metadata"></audio>
                 <button className="forwardBackward" onClick={backTen}><GrBackTen size={23.53} /></button>
                 <button onClick={togglePlayPause} className="playPause">
                     {isPlaying ? <FaPause /> : <FaPlay className="play" />}
                 </button>
                 <button className="forwardBackward" onClick={forwardTen}> <GrForwardTen size={23.53} /></button>
-
-                <button onClick={handlePlaybackSpeed} className="playbackSpeedButton">
-                    {playbackSpeed === 1.0 ? "1.0x" : playbackSpeed === 1.5 ? "1.5x" : playbackSpeed === 2.0 ? "2.0x" : "1.0x"}
+                <button onClick={handlePlaybackSpeed} className="playbackSpeedButton playbackSpeedButton-f">
+                    {playbackSpeed === 1.0 ? "1.0x" : playbackSpeed === 1.5 ? "1.5x" : playbackSpeed === 2.0 ? "2.0x" : playbackSpeed === 0.5 ? "0.5x" : "1.0x"}
                 </button>
             </div>
             <div className="play-player-2">
@@ -101,6 +102,9 @@ function AudioPlayer(props) {
                 {/* duration */}
                 <div className="duration">{(duration && !isNaN(duration)) && calculateTime(duration)}</div>
                 {/* playback speed */}
+                <button onClick={handlePlaybackSpeed} className="playbackSpeedButton">
+                    {playbackSpeed === 1.0 ? "1.0x" : playbackSpeed === 1.5 ? "1.5x" : playbackSpeed === 2.0 ? "2.0x" : playbackSpeed === 0.5 ? "0.5x" : "1.0x"}
+                </button>
 
             </div>
 

@@ -3,6 +3,15 @@
     background-color:#F7DD6E;
     margin-top: 0%;
     position: fixed;
+    border-style: solid;
+    border-width: 1px;
+    border-top-style: hidden;
+    border-left-style: hidden;
+    border-right-style: hidden;
+    min-height: 15%;
+    
+
+    
     
 
 }

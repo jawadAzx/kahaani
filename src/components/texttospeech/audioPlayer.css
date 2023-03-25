@@ -1,9 +1,14 @@
-.audioPlayer {
+.audioPlayer-s {
     --primary: #6485E2;
     ;
     --secondary: #fff;
 
-    align-items: center;
+    align-items: flex-start;
+    display: flex;
+
+}
+
+.sm-row-2 {
     display: flex;
 
 }
@@ -175,8 +180,22 @@
 
 }
 
+.play-player-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    margin-top: 19.5px;
+}
+
+.playbackSpeedButton-f {
+  display: none;
+
+}
+
 @media screen and (min-width:300px) and (max-width:540px) {
-    .audioPlayer {
+    .audioPlayer-s {
         --primary: #6485E2;
         ;
         --secondary: #fff;
@@ -206,11 +225,16 @@
     }
 
     .playbackSpeedButton {
+        display: none;
+
+    }
+
+    .playbackSpeedButton-f {
         border: 1px solid black;
         border-radius: 100px;
         color: black;
         background-color: transparent;
-        margin-left:0px;
+        margin-left: 0px;
         padding: 5px 10px;
         font-size: 14px;
         cursor: pointer;

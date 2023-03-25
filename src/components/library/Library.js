@@ -47,9 +47,9 @@ function Library() {
                 {data.map((story, index) => {
                   console.log(story)
                   return (
-                    <div className="wrapper mt-3">
-                      <div key={index} className={`column d-flex flex-column align-items-left p-4 edits`}>
-
+                    <div className="wrapper ">
+                      <div key={index} className={`column d-flex flex-column align-items-left edits`}>
+                        
 
                         <Link key={index} to={{
                           pathname: "/player/:1",
@@ -69,10 +69,10 @@ function Library() {
                               src={story.image}
                               alt="Card images cap"
                             />
-                            <h1 className="mt-3 story-subheadings">
+                            <h1 className="story-subheadings">
                               {story.title}
                             </h1>
-                            <h1 className="mt-3 story-subheadings">
+                            <h1 className="story-subheadings">
                               Author Name
                             </h1>
                           </div>

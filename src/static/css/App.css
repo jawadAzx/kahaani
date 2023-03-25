@@ -1,8 +1,6 @@
 body,
 html {
-  /* margin: 0; */
-  /* height: 100%; */
-  /* overflow-y: hidden; */
+  
   background-color: #fff;
 }
 
@@ -24,20 +22,27 @@ a:hover {
   position: fixed;
   width:185px;
   top:3vh;
-  left:44%;
-  font-family: 'Open Sans';
+  left:45%;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  font-size:calc(2rem + 0.390625vw);
+  font-style: normal;
+  font-size:36px;
 }
 .logo {
   position:relative;
   top: 1vh;
   left:5vh;
 }
+.logo-mobile{
+  align-self: center;
+
+}
 .search-icon{
   position: fixed;
-  right:10vh;
-  top:4vh;
+  right:15vh;
+  top:5vh;
+  height: 20px;
+  width: 20px;
 }
 .navbar{
   display:flex;
@@ -108,7 +113,8 @@ a:hover {
   font-size: 1.5rem;
   font-weight: 500;
   position: relative;
-  margin-top: 2%;
+  margin-top: 50px;
+  margin-left: 9px;
 }
 
 .sub-heading-text {
@@ -279,6 +285,8 @@ a:hover {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  padding-top: 140px;
+
 }
 
 audio {
@@ -289,7 +297,7 @@ audio {
   /* max-height: 120px; */
   /* border: 1px solid #ddd; */
   display: flex;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 
 .wrapper::-webkit-scrollbar {
@@ -303,6 +311,7 @@ audio {
 .card-image {
   width: 12rem;
   height: 8rem;
+  border-radius: 14px;
 }
 
 .player-attributes {
@@ -489,7 +498,7 @@ audio {
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   background-color: transparent;
   width: 100%;
 }
@@ -546,18 +555,18 @@ audio {
 .edits {
   min-width: 200px;
   height:max-content;
-  border-radius: 20px;
-  background: #fdfbfb;
+  
   margin-right: 6px;
+  
   flex-wrap: wrap;
   padding-top: 2%;
 }
-
+/*
 .edits:hover {
   background-color: hsla(125, 66%, 83%, 0.725);
   transition: background-color 500ms;
 }
-
+*/
 .subject-heading {
   min-width: 300px;
   overflow: hidden;
@@ -582,6 +591,7 @@ audio {
   text-align: left;
   line-height: 2px;
   margin-left: 7%;
+  padding-top: 12px;
 }
 
 .search-group {
@@ -602,3 +612,15 @@ audio {
   flex-direction: column;
   align-items: flex-start;
 }
+.mobile-header{
+  min-width:300px ;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+
+

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import Loader from "react-loader-spinner";
 import Footer from "../footer/Footer";
 import './synthesizer.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import AudioPlayer from "./AudioPlayer";
-import { TbLoader } from "react-icons/tb";
 import Header from "../header/Header";
 function Synthesizer() {
     const [text, setText] = useState("");
@@ -12,8 +12,10 @@ function Synthesizer() {
     const [synthesize, setSynthesize] = useState(false);
     const [audioStorage, setAudioStorage] = useState(null);
     const [characterCount, setCharacterCount] = useState(0);
-    const [buttonText, setButtonText] = useState("Listen to the audio file")
+    const [buttonText, setButtonText] = useState("Listen to Text")
+    const [isclicked, setisclicked] = useState(false)
     const [icon, setIcon] = useState("")
+
     const handleChange = (e) => {
         setText(e.target.value)
         setCharacterCount(e.target.value.length)
@@ -21,8 +23,8 @@ function Synthesizer() {
     const playAudio = async (id) => {
         setGet(false)
         setSynthesize(true)
-        setButtonText("Loading")
-        setIcon(<TbLoader size={20} />)
+        setButtonText(`Loading`)
+        setisclicked(true)
         const url = "https://api.kahaani.fun/synthesize"
         const body = {
             // add quotation marks to text 
@@ -46,6 +48,7 @@ function Synthesizer() {
                 const url = window.URL.createObjectURL(file)
                 setAudioStorage(url)
                 setGet(true)
+                setButtonText(`Listen to new Text`)
                 // setText("");
                 setSynthesize(false)
 
@@ -69,15 +72,13 @@ function Synthesizer() {
                 />
                 <div className="bottom-container">
                     <div className="charcount"> {characterCount} / 10000 Characters</div>
-
-                    {/* <button className="btn-synth synthesizer mb-3 listen" style={{ background: characterCount < 1 ? "#808080" : '#6485E2' }} onClick={playAudio}>{buttonText} {icon}</button> */}
-                    {get ? <AudioPlayer src={audioStorage} /> : <div>
-                        {
-                            synthesize ? null
-                                : null
-                        }
-                    </div>}
                 </div>
+                <div className="button-container">
+                    {get ? <AudioPlayer src={audioStorage} /> :
+                        null}
+
+                </div>
+                <button type="button" className="btn btn-secondary synthesizer mb-3 listen" style={{ background: characterCount < 1 ? "#808080" : '#6485E2' }} onClick={playAudio}>{buttonText} {isclicked && <FontAwesomeIcon icon={faSpinner} spin />}</button>
             </div>
             <Footer isLibrary={false} isSynthesizer={true} />
         </div>

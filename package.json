@@ -4,6 +4,9 @@
   "private": true,
   "proxy": "http://127.0.0.1:8000/synthesize",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@popperjs/core": "^2.10.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^11.2.7",

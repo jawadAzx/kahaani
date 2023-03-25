@@ -3,12 +3,15 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from "./components/homepage/Homepage";
 import Library from "./components/library/Library";
 import Header from "./components/header/Header";
+import HeaderMobile from "./components/header/HeaderMobile";
 import Player from "./components/player/Player";
 import Testing from "./components/testing/Testing";
 import Synthesizer from "./components/texttospeech/Synthesizer";
 import Upload from "./components/upload/Upload";
 import SST from "./components/sst/SST";
 import "./static/css/App.css"
+import  { useState, useEffect } from 'react';
+
 
 
 /**
@@ -22,6 +25,20 @@ import "./static/css/App.css"
  */
 
 function App() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth < 768); // set the mobile breakpoint to 768 pixels
+    }
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <div>
       <Router>
