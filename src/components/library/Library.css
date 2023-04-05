@@ -5,7 +5,12 @@
     justify-content: flex-start;
     background-color: white;
     height:100vh;
+    width: 100vw;
+    overflow-x: hidden;
 }
 .heading-text{
-    margin-top: 10%;
+    margin-top: 2%;
+}
+.container{
+    margin-bottom: 1%;
 }

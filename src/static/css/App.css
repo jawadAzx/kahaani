@@ -18,11 +18,12 @@ a:hover {
 /* Navbar styling */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
 .heading-homepage{
-  display:inline-block;
-  position: fixed;
+  position: relative;
+  justify-content: center;
+  left:300%;
   width:185px;
   top:3vh;
-  left:45%;
+  text-align: center;
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -38,11 +39,11 @@ a:hover {
 
 }
 .search-icon{
-  position: fixed;
-  right:15vh;
-  top:5vh;
-  height: 20px;
-  width: 20px;
+  position: relative;
+  left:40vw;
+  top:3vh;
+  height: 30px;
+  width: 30px;
 }
 .navbar{
   display:flex;
@@ -113,7 +114,7 @@ a:hover {
   font-size: 1.5rem;
   font-weight: 500;
   position: relative;
-  margin-top: 50px;
+  margin-top: 10px;
   margin-left: 9px;
 }
 
@@ -129,7 +130,7 @@ a:hover {
   width: 95%;
   height:95%;
   position: relative;
-  top:10vh;
+  top:2vh;
   background: transparent;
 }
 

@@ -38,7 +38,7 @@ function Player(props) {
 
     // state
     const [isPlaying, setIsPlaying] = useState(false);
-    const [duration, setDuration] = useState(0);
+    const [duration, setDuration] = useState("00:00");
     const [currentTime, setCurrentTime] = useState(0);
     const [playbackSpeed, setPlaybackSpeed] = useState(1.0);
 
@@ -46,12 +46,22 @@ function Player(props) {
     const audioPlayer = useRef();   // reference our audio component
     const progressBar = useRef();   // reference our progress bar
     const animationRef = useRef();  // reference the animation
-
+    console.log(duration)
     useEffect(() => {
-        const seconds = Math.floor(audioPlayer.current.duration);
-        setDuration(seconds);
-        progressBar.current.max = seconds;
-    }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState]);
+        // Update duration when audio metadata is loaded
+        const handleLoadedMetadata = () => {
+            const seconds = Math.floor(audioPlayer.current.duration);
+            setDuration(seconds);
+            progressBar.current.max = seconds;
+        };
+
+        audioPlayer.current.addEventListener('loadedmetadata', handleLoadedMetadata);
+
+        return () => {
+            audioPlayer.current.removeEventListener('loadedmetadata', handleLoadedMetadata);
+        };
+    }, []);
+
 
     const calculateTime = (secs) => {
         const minutes = Math.floor(secs / 60);
@@ -167,7 +177,7 @@ function Player(props) {
                         {/*  */}
                         <button className="backward" onClick={backTen}><GrBackTen size={23.53} /></button>
                         <button onClick={togglePlayPause} className="playPause-button">
-                            {isPlaying ? <FaPause /> : <FaPlay className="play" />}
+                            {isPlaying ? <FaPause /> : <FaPlay className="play-player-icon" />}
                         </button>
                         <button className="forward" onClick={forwardTen}> <GrForwardTen size={23.53} /></button>
                         {/*  */}

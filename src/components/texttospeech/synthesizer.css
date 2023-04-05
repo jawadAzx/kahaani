@@ -15,6 +15,8 @@
     justify-content: flex-start;
     background-color: #F7DD6E;
     height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 
 }
 
@@ -22,7 +24,11 @@
     font-size: 2.0rem;
     font-family: "Montserrat Alternates", sans-serif;
     font-weight: bolder;
-    margin-top: 20vh;
+    margin-top: 10vh;
+    text-align: center;
+    position: relative;
+    left:-1.5%;
+
 
 }
 
@@ -42,6 +48,9 @@
 textarea {
     font-family: 'Noto Nastaliq Urdu Draft', serif;
     font-size: 28px;
+    line-height: normal;
+    position: relative;
+    left:-1%;
 }
 
 textarea::placeholder {
@@ -116,17 +125,20 @@ textarea::placeholder {
     padding: 1.5% 6% 1.5% 6%;
     display: block;
     position: relative;
-    left:14%;
+    left:-3%;
 }
 
 @media screen and (min-width:300px) and (max-width:540px) {
     .tts-heading{
-        margin-top: 15vh;
+        margin-top: 5vh;
+        left:0%;
     }
     textarea {
         font-family: 'Noto Nastaliq Urdu Draft', serif;
-        font-size: 16px;
+        font-size: 20px;
+        line-height: normal;
         outline: transparent;
+        left:0%;
     }
     textarea::placeholder {
         position: relative;

@@ -41,7 +41,7 @@ function Library() {
           const data = library[genre];
           { console.log(data) }
           return (
-            <div key={index} className="container mt-3">
+            <div key={index} className="container">
               <h2 className="heading-text mt-6">{genre}</h2>
               <div className="row-flex">
                 {data.map((story, index) => {
@@ -101,8 +101,6 @@ function Library() {
       }
     <Footer isLibrary={true} isSynthesizer={true}/>
     </div>
-   
-    
   );
   
 }

@@ -2,10 +2,11 @@
     background-color: #F7DD6E;
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
 }
 .top-text{
     position:relative;
-    top:24vh;
+    top:10vh;
 }
 .btn{
     margin-top: 1%;
@@ -16,7 +17,7 @@
     font-family: 'Open Sans', sans-serif;
     font-size:calc(1rem + 0.390625vw);
     position: relative;
-    top:24.5vh;
+    top:10vh;
     font-weight: 400;
     padding-left: 18px;
 }
@@ -26,7 +27,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    top:13vh;
+    top:2vh;
     font-weight: bold;
     font-size: calc(0.7rem + 0.390625vw);
     width: 40%;
@@ -44,7 +45,7 @@
         width: 100vw;
     }
     .top-text{
-        top:10vh;
+        top:2vh;
         font-size: 24px !important;
         padding-left:2% !important;
         text-align: center;
@@ -54,13 +55,13 @@
     }
     .btn{
         position: relative;
-        top:5vh;
+        top:-2vh;
         width: 80%;
-        left:5%;
+        left:6%;
     }
     .homepage-text{
         font-size: calc(0.9rem + 0.390625vw);
-        top:10vh;
+        top:2vh;
         padding-right:3%;
         text-align: left;
     }
@@ -74,7 +75,7 @@
     .home-illus{
         width: 100% !important;
         height: 100%!important;
-        top:10% !important;
+        top:5% !important;
     }
 
 }
@@ -87,7 +88,7 @@
         width: 100vw;
     }
     .top-text{
-        top:18vh;
+        top:10vh;
         font-size: calc(2rem + 0.390625vw) !important;
         text-align: center !important;
         padding-left: 12% !important;

@@ -21,8 +21,6 @@ function Synthesizer() {
         setCharacterCount(e.target.value.length)
     }
     const playAudio = async (id) => {
-        setGet(false)
-        setSynthesize(true)
         setButtonText(`Loading`)
         setisclicked(true)
         const url = "https://api.kahaani.fun/synthesize"
@@ -55,6 +53,7 @@ function Synthesizer() {
             })
             .catch(err => console.error(err));
     }
+    console.log(get)
     return (
         <div className="maindiv">
             <Header isLibrary={false} />

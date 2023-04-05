@@ -11,16 +11,18 @@
     background-repeat: no-repeat;
     background-position: right center;
     background-attachment: fixed;
+    overflow: hidden;
 }
 
 .player-sub-container {
-    padding-top: 7%;
+    padding-top: 2%;
 
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
     width: 50%;
+    height: 90%;
     /* overflow-y: scroll;
     direction: rtl; */
     margin-bottom: 100px;
@@ -47,7 +49,7 @@
 .player-text {
     font-family: "Noto Nastaliq Urdu", serif;
     font-weight: 400;
-    font-size: 32;
+    font-size: 24px;
     line-height: 67.2px;
     text-align: right
 }
@@ -55,6 +57,7 @@
 .audio-player-container {
     top: 85%;
     position: fixed;
+    margin-top: 3%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -93,6 +96,22 @@
 }
 
 @media screen and (min-width:300px) and (max-width:540px) {
+    .player {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        /* background-color: green; */
+        background-image: url("img.png");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-attachment: fixed;
+        /* background size reduce */
+        background-size: 50% 50%;
+    }
+
     .player-sub-container {
         padding-top: 20%;
 
@@ -123,13 +142,14 @@
         margin-left: 32px;
         margin-right: 32px;
         margin-bottom: 59%;
+        margin-top: 40px;
 
     }
 
     .player-text {
         font-family: "Noto Nastaliq Urdu", serif;
         font-weight: 400;
-        font-size: 32;
+        font-size: 22px;
         line-height: 67.2px;
         text-align: right
     }
@@ -141,6 +161,7 @@
         flex-direction: column-reverse;
         justify-content: flex-end;
         align-items: center;
+        margin-top: 10%;
         width: 100%;
         height: 298px;
         box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.25);

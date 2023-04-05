@@ -81,7 +81,7 @@ function AudioPlayer(props) {
                 {/*  */}
                 <button className="backward" onClick={backTen}><GrBackTen size={23.53} /></button>
                 <button onClick={togglePlayPause} className="playPause-button">
-                    {isPlaying ? <FaPause /> : <FaPlay className="play" />}
+                    {isPlaying ? <FaPause /> : <FaPlay style={{ color: "black" }} />}
                 </button>
                 <button className="forward" onClick={forwardTen}> <GrForwardTen size={23.53} /></button>
                 {/*  */}
