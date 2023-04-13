@@ -1,6 +1,6 @@
 .heading {
     position: relative;
-    top: 6vh;
+    top: 2vh;
     align-items: center;
     font-size: 2.0rem;
     font-family: "Montserrat Alternates", sans-serif;
@@ -24,10 +24,10 @@
     font-size: 2.0rem;
     font-family: "Montserrat Alternates", sans-serif;
     font-weight: bolder;
-    margin-top: 10vh;
+    margin-top: 7vh;
     text-align: center;
     position: relative;
-    left:-1.5%;
+    left: -1.5%;
 
 
 }
@@ -47,10 +47,12 @@
 
 textarea {
     font-family: 'Noto Nastaliq Urdu Draft', serif;
-    font-size: 28px;
+    font-size: 24px;
     line-height: normal;
     position: relative;
-    left:-1%;
+    left: -1%;
+    line-height: 210%;
+    padding: 4%;
 }
 
 textarea::placeholder {
@@ -125,47 +127,116 @@ textarea::placeholder {
     padding: 1.5% 6% 1.5% 6%;
     display: block;
     position: relative;
-    left:-3%;
+    left: -3%;
+}
+
+.mt-neg {
+    margin-top: -25px;
+}
+
+.listen-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    margin-top: 5px;
+
+}
+
+.btn-text {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0 10px;
+}
+
+.btn-line {
+    position: absolute;
+    bottom: -3px;
+    margin-left: 10px;
+    width: 156px;
+    height: 2px;
+    background-color: #000000;
 }
 
 @media screen and (min-width:300px) and (max-width:540px) {
-    .tts-heading{
-        margin-top: 5vh;
-        left:0%;
+    .mt-neg {
+        margin-top: 0px;
     }
+
+    .tts-heading {
+        margin-top: 5vh;
+        left: 0%;
+    }
+
     textarea {
         font-family: 'Noto Nastaliq Urdu Draft', serif;
         font-size: 20px;
         line-height: normal;
         outline: transparent;
-        left:0%;
+        left: 0%;
     }
+
     textarea::placeholder {
         position: relative;
         text-align: right;
         font-family: 'Noto Nastaliq Urdu Draft', serif;
         font-size: 16px;
-        top:1.5vh;
+        top: 1.5vh;
     }
+
     .rounded1 {
         border: transparent;
         border-radius: 0.5rem;
         text-align: right;
     }
-    .btn.synthesizer{
-        top:5%;
-        left:10%;
-        font-size: 14px; 
+
+    .btn.synthesizer {
+        top: 5%;
+        left: 10%;
+        font-size: 14px;
     }
+
+    .listen-btn {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        position: relative;
+        margin-top: 5px;
+        height: 100px;
+        margin-left: 75px;
+
+    }
+
+    .btn-text {
+        color: #000000;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 0 10px;
+    }
+
+    .btn-line {
+        position: unset;
+        bottom: -50px;
+        margin-left: 10px;
+        width: 156px;
+        height: 2px;
+        background-color: #000000;
+    }
+
     .maindiv {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
         background-color: #F7DD6E;
+        width: 100%;
         height: 100%;
-    
+
     }
+
     .tts-container {
         display: flex;
         flex-direction: column;
@@ -180,10 +251,12 @@ textarea::placeholder {
     .form-control1 {
         display: block;
         position: relative;
-        height: 550px;
+        height: 450px;
         top: -7vh;
-        width: 100%;
-        padding: 2%;
+        width: 86%;
+        padding: 0%;
+        margin-left: 24px;
+        margin-right: 24px;
     }
 
     .charcount {

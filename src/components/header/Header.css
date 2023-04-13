@@ -22,7 +22,7 @@
         display: flex;
         position: relative;
         top:-0.5vh;
-        left:19vw;
+        left:18vw;
 
     }
     .search-icon{
@@ -38,7 +38,7 @@
         padding-bottom:12%;
     }
     .heading-homepage{
-        left:40%;
+        left: 270px;
     }
     .logo{
         left:10%;

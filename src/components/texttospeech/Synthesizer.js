@@ -53,6 +53,11 @@ function Synthesizer() {
             })
             .catch(err => console.error(err));
     }
+    const listenNew = () => {
+        setGet(false)
+        setText("");
+        setisclicked(false)
+    }
     console.log(get)
     return (
         <div className="maindiv">
@@ -72,13 +77,20 @@ function Synthesizer() {
                 <div className="bottom-container">
                     <div className="charcount"> {characterCount} / 10000 Characters</div>
                 </div>
-                <div className="button-container">
+                <div className="button-container mt-neg">
                     {get ? <AudioPlayer src={audioStorage} /> :
                         null}
 
                 </div>
-                <button type="button" className="btn btn-secondary synthesizer mb-3 listen" style={{ background: characterCount < 1 ? "#808080" : '#6485E2' }} onClick={playAudio}>{buttonText} {isclicked && <FontAwesomeIcon icon={faSpinner} spin />}</button>
+                {get ?
+                    <button type="button" className="listen-btn" onClick={listenNew}>
+                        <span className="btn-text">Listen to new text</span>
+                        <div className="btn-line"></div>
+                    </button> :
+                    <button type="button" className="btn btn-secondary synthesizer mb-3 listen" style={{ background: characterCount < 1 ? "#808080" : '#6485E2' }} onClick={playAudio}>Listen to Text {isclicked && <FontAwesomeIcon icon={faSpinner} spin />}</button>
+                }
             </div>
+          
             <Footer isLibrary={false} isSynthesizer={true} />
         </div>
     );

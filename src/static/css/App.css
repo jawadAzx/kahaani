@@ -1,7 +1,7 @@
 body,
 html {
   
-  background-color: #fff;
+  background-color: #F7DD6E;
 }
 
 a {
@@ -20,7 +20,7 @@ a:hover {
 .heading-homepage{
   position: relative;
   justify-content: center;
-  left:300%;
+  left:393px;
   width:185px;
   top:3vh;
   text-align: center;
@@ -499,9 +499,10 @@ audio {
 }
 
 .footer {
-  position: fixed;
+  position: absolute;
   background-color: transparent;
   width: 100%;
+  height: max-content;
 }
 
 .textfooter {
