@@ -18,7 +18,7 @@ const SST = () => {
     //https://kahaani-backend.onrender.com/api/getHighlights
     //https://kahaani-backend.onrender.com/api/story/postStory
     const handleUpload = async () => {
-        let address = 'https://kahaani-backend.onrender.com/api/getHighlights' // address of the server
+        let address = 'https://kahaani-backend.onrender.com/api/getHighlights/upload' // address of the server
         let formData = new FormData();
         formData.append('file', audio);
         for (const value of formData.values()) {
