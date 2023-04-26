@@ -42,7 +42,9 @@ function Library() {
           { console.log(data) }
           return (
             <div key={index} className="container">
-              <h2 className="heading-text mt-6">{genre}</h2>
+              <h2 className="heading-text mt-6">{
+                genre !== "undefined" ? genre : "Other"
+              }</h2>
               <div className="row-flex">
                 {data.map((story, index) => {
                   console.log(story)
@@ -72,9 +74,9 @@ function Library() {
                             <h1 className="story-subheadings">
                               {story.title}
                             </h1>
-                            <h1 className="story-subheadings">
+                            {/* <h1 className="story-subheadings">
                               Author Name
-                            </h1>
+                            </h1> */}
                           </div>
                         </Link>
 

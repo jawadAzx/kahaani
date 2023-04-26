@@ -90,6 +90,11 @@ function AudioPlayer(props) {
                 <button onClick={handlePlaybackSpeed} className="playbackSpeedButton playbackSpeedButton-f">
                     {playbackSpeed === 1.0 ? "1.0x" : playbackSpeed === 1.5 ? "1.5x" : playbackSpeed === 2.0 ? "2.0x" : playbackSpeed === 0.5 ? "0.5x" : "1.0x"}
                 </button>
+                <a href={props.src} download>
+                    <button className="downloadButton">
+                        Download
+                    </button>
+                </a>
             </div>
             <div className="play-player-2">
                 {/* current time */}
@@ -98,18 +103,15 @@ function AudioPlayer(props) {
                 <div>
                     <input type="range" className="progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
                 </div>
-
                 {/* duration */}
                 <div className="duration">{(duration && !isNaN(duration)) && calculateTime(duration)}</div>
                 {/* playback speed */}
                 <button onClick={handlePlaybackSpeed} className="playbackSpeedButton">
                     {playbackSpeed === 1.0 ? "1.0x" : playbackSpeed === 1.5 ? "1.5x" : playbackSpeed === 2.0 ? "2.0x" : playbackSpeed === 0.5 ? "0.5x" : "1.0x"}
                 </button>
-
             </div>
-
-
         </div>
+
     )
 }
 
