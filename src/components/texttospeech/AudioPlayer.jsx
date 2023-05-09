@@ -90,11 +90,6 @@ function AudioPlayer(props) {
                 <button onClick={handlePlaybackSpeed} className="playbackSpeedButton playbackSpeedButton-f">
                     {playbackSpeed === 1.0 ? "1.0x" : playbackSpeed === 1.5 ? "1.5x" : playbackSpeed === 2.0 ? "2.0x" : playbackSpeed === 0.5 ? "0.5x" : "1.0x"}
                 </button>
-//                 <a href={props.src} download>
-//                     <button className="downloadButton">
-//                         Download
-//                     </button>
-//                 </a>
             </div>
             <div className="play-player-2">
                 {/* current time */}
