@@ -1,6 +1,6 @@
 body,
 html {
-  
+
   background-color: #F7DD6E;
 }
 
@@ -17,44 +17,50 @@ a:hover {
 
 /* Navbar styling */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
-.heading-homepage{
+
+.heading-homepage {
   position: relative;
   justify-content: center;
-  left:393px;
-  width:185px;
-  top:3vh;
+  left: 393px;
+  width: 185px;
+  top: 3vh;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size:36px;
+  font-size: 36px;
 }
+
 .logo {
-  position:relative;
+  position: relative;
   top: 1vh;
-  left:5vh;
+  left: 5vh;
 }
-.logo-mobile{
+
+.logo-mobile {
   align-self: center;
 
 }
-.search-icon{
+
+.search-icon {
   position: relative;
-  left:40vw;
-  top:3vh;
+  left: 40vw;
+  top: 3vh;
   height: 30px;
   width: 30px;
 }
-.navbar{
-  display:flex;
+
+.navbar {
+  display: flex;
   text-align: center;
   display: inline-block;
-  position:fixed;
+  position: fixed;
   height: 10vh;
   padding-bottom: 5.5%;
-  width:100%;
+  width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 .footer-styling {
   box-shadow: 0 4px 10px rgb(0 0 0 / 30%);
 }
@@ -122,15 +128,15 @@ a:hover {
   font-family: "Montserrat Alternates";
   font-size: 16px;
   font-weight: 300;
-  
+
 }
 
 .home-illus {
   background-color: #ffd459;
   width: 95%;
-  height:95%;
+  height: 95%;
   position: relative;
-  top:2vh;
+  top: 2vh;
   background: transparent;
 }
 
@@ -299,6 +305,7 @@ audio {
   /* border: 1px solid #ddd; */
   display: flex;
   overflow-x: hidden;
+  min-width: 236px;
 }
 
 .wrapper::-webkit-scrollbar {
@@ -556,13 +563,14 @@ audio {
 
 .edits {
   min-width: 200px;
-  height:max-content;
-  
+  height: max-content;
+
   margin-right: 6px;
-  
+
   flex-wrap: wrap;
   padding-top: 2%;
 }
+
 /*
 .edits:hover {
   background-color: hsla(125, 66%, 83%, 0.725);
@@ -609,20 +617,16 @@ audio {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.image-container{
+
+.image-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.mobile-header{
-  min-width:300px ;
+
+.mobile-header {
+  min-width: 300px;
   align-items: center;
   display: flex;
   flex-direction: column;
 }
-
-
-
-
-
-

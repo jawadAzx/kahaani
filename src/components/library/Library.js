@@ -35,7 +35,7 @@ function Library() {
 
   return (
     <div className="library">
-    <Header isLibrary={true}/>
+      <Header isLibrary={true} />
       {library &&
         Object.keys(library).map((genre, index) => {
           const data = library[genre];
@@ -45,13 +45,13 @@ function Library() {
               <h2 className="heading-text mt-6">{
                 genre !== "undefined" ? genre : "Other"
               }</h2>
-              <div className="row-flex">
+              <div className="row-x-scrollable">
                 {data.map((story, index) => {
                   console.log(story)
                   return (
                     <div className="wrapper ">
                       <div key={index} className={`column d-flex flex-column align-items-left edits`}>
-                        
+
 
                         <Link key={index} to={{
                           pathname: "/player/:1",
@@ -74,13 +74,8 @@ function Library() {
                             <h1 className="story-subheadings">
                               {story.title}
                             </h1>
-                            {/* <h1 className="story-subheadings">
-                              Author Name
-                            </h1> */}
                           </div>
                         </Link>
-
-
                       </div>
                     </div>
                   )
@@ -101,9 +96,9 @@ function Library() {
 
         </div>
       }
-    <Footer isLibrary={true} isSynthesizer={true}/>
+      <Footer isLibrary={true} isSynthesizer={true} />
     </div>
   );
-  
+
 }
 export default Library;
